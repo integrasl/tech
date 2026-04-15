@@ -1087,6 +1087,38 @@
       cursor: pointer;
     }
 
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink);
+      color: var(--white);
+      padding: 16px 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      z-index: 10000;
+    }
+    .cookie-text p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+    }
+    .cookie-text a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+    .cookie-buttons {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    @media(max-width:700px) {
+      .cookie-banner { flex-direction: column; align-items: stretch; }
+    }
+
     /* TOAST */
     .toast {
       position: fixed;
@@ -1212,10 +1244,30 @@
 
   <div id="app"></div>
 
-  
+  <!-- COOKIES BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      <p>Utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Puedes obtener más información y configurar tus preferencias en nuestra <a href="#">Política de Cookies</a>.</p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn-outline" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Rechazar</button>
+      <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Aceptar todas</button>
+    </div>
+  </div>
+
   <div class="toast" id="toast">✓ Solicitud enviada — te contactaremos en menos de 48 h</div>
 
   <script>
+    function acceptCookies() {
+      document.getElementById('cookieBanner').style.display = 'none';
+      try { localStorage.setItem('cookiesAccepted', 'true'); } catch(e) {}
+    }
+
+    if(localStorage.getItem('cookiesAccepted')) {
+      const cb = document.getElementById('cookieBanner');
+      if (cb) cb.style.display = 'none';
+    }
+
     // ─── SHARED BLOCKS ──────────────────────────────────────────────────────────
 
     const LOGO = `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" width="18" height="18"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><path d="M13 17.5h9M17.5 13v9"/></svg>`;

@@ -1136,7 +1136,7 @@
 
     @media(max-width:700px) {
       .nav-links {
-        display: none
+        display: none !important
       }
 
       .nav-toggle {
@@ -1212,7 +1212,16 @@
 
   <div id="app"></div>
 
-  
+    <!-- COOKIES BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      <p>Utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Puedes obtener más información y configurar tus preferencias en nuestra <a href="#">Política de Cookies</a>.</p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn-outline" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Rechazar</button>
+      <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Aceptar todas</button>
+    </div>
+  </div>
   <div class="toast" id="toast">✓ Solicitud enviada — te contactaremos en menos de 48 h</div>
 
   <script>
@@ -1512,11 +1521,6 @@ ${footer()}</div>`;
     // ─── ROUTER ─────────────────────────────────────────────────────────────────
 
     function navigate(page) {
-      // ESTE BLOQUE CIERRA EL MENÚ MÓVIL AL HACER CLIC
-      if (typeof mobileOpen !== 'undefined' && mobileOpen) {
-        mobileOpen = false;
-        document.getElementById('nav-links').style.cssText = '';
-      }
       if (!pages[page]) page = 'inicio';
       const app = document.getElementById('app');
       app.innerHTML = pages[page]();

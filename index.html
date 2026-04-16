@@ -33,12 +33,26 @@
       --gray2: #f4f7fb;
       --border: rgba(10, 95, 214, 0.15);
       --accent: #00c8a0;
+      --static-ink: #050f1e;
+      --static-ink2: #1a2e4a;
+      --static-white: #ffffff;
+      --static-sky: #e8f2ff;
+      --static-bg: rgba(255, 255, 255, 0.96);
       --font-head: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --radius: 12px;
       --radius-lg: 20px;
       --shadow: 0 2px 24px rgba(5, 15, 30, 0.08);
       --shadow-lg: 0 8px 48px rgba(5, 15, 30, 0.14);
+    }
+
+    html[data-theme="dark"] {
+      --ink: #ffffff;
+      --ink2: #f4f7fb;
+      --white: #050f1e;
+      --gray2: #0f1c2e;
+      --border: rgba(255, 255, 255, 0.15);
+      --sky: rgba(10, 95, 214, 0.2);
     }
 
     html,
@@ -62,7 +76,7 @@
       left: 0;
       right: 0;
       z-index: 999;
-      background: rgba(255, 255, 255, 0.96);
+      background: var(--static-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 5vw;
@@ -77,7 +91,7 @@
       font-family: var(--font-body);
       font-size: 18px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--static-ink);
       letter-spacing: 0.5px;
       text-decoration: none;
       display: flex;
@@ -106,7 +120,7 @@
     .nav-links a {
       font-size: 14px;
       font-weight: 400;
-      color: var(--ink2);
+      color: var(--static-ink2);
       text-decoration: none;
       padding: 7px 14px;
       border-radius: 8px;
@@ -116,12 +130,12 @@
     }
 
     .nav-links a:hover {
-      background: var(--sky);
+      background: var(--static-sky);
       color: var(--blue);
     }
 
     .nav-links a.active {
-      background: var(--sky);
+      background: var(--static-sky);
       color: var(--blue);
       font-weight: 500;
     }
@@ -155,7 +169,7 @@
       display: block;
       width: 22px;
       height: 2px;
-      background: var(--ink);
+      background: var(--static-ink);
       margin: 4px 0;
     }
 
@@ -1010,7 +1024,7 @@
 
     /* FOOTER */
     footer {
-      background: var(--ink);
+      background: var(--static-ink);
       padding: 60px 5vw 32px;
     }
 
@@ -1039,7 +1053,7 @@
     .footer-col h5 {
       font-size: 13px;
       font-weight: 700;
-      color: var(--white);
+      color: var(--static-white);
       letter-spacing: 1px;
       text-transform: uppercase;
       margin-bottom: 16px;
@@ -1062,7 +1076,7 @@
     }
 
     .footer-col ul li a:hover {
-      color: var(--white);
+      color: var(--static-white);
     }
 
     .footer-bottom {
@@ -1080,7 +1094,7 @@
       font-family: var(--font-body);
       font-size: 17px;
       font-weight: 600;
-      color: var(--white);
+      color: var(--static-white);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1092,8 +1106,8 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: var(--ink);
-      color: var(--white);
+      background: var(--static-ink);
+      color: var(--static-white);
       padding: 16px 5vw;
       display: flex;
       justify-content: space-between;
@@ -1266,6 +1280,11 @@
       <li><a data-page="industrias" onclick="navigate('industrias')">Industrias</a></li>
       <li><a data-page="nosotros" onclick="navigate('nosotros')">Nosotros</a></li>
       <li><a data-page="partners" onclick="navigate('partners')">Partners</a></li>
+      <li><button onclick="toggleTheme()" aria-label="Cambiar tema" style="background:none; border:none; cursor:pointer; padding: 6px; color: var(--static-ink2); display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background 0.3s; margin-right: 8px; margin-left: 8px;">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button></li>
       <li><a class="nav-login-btn" data-page="login" onclick="navigate('login')">Acceso
           Clientes</a></li>
       <li><a data-page="contacto" onclick="navigate('contacto')" class="nav-cta">Contacto</a></li>
@@ -1784,6 +1803,30 @@ ${footer()}</div>`;
       if (typeof grecaptcha !== 'undefined') {
         try { grecaptcha.reset(); } catch (e) { }
       }
+    }
+
+    // ─── THEME TOGGLE ─────────────────────────────────────────────────────────
+
+    function toggleTheme(forceNext) {
+      const htmlEl = document.documentElement;
+      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const next = typeof forceNext === 'string' ? forceNext : (current === 'dark' ? 'light' : 'dark');
+      
+      htmlEl.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      
+      const icon = document.getElementById('theme-icon');
+      if (icon) {
+        if (next === 'dark') {
+          icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+        } else {
+          icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        }
+      }
+    }
+
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      toggleTheme('dark');
     }
 
     // ─── NAV UTILS ───────────────────────────────────────────────────────────────

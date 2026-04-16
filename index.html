@@ -560,10 +560,10 @@
     }
 
     .srv-module.open .srv-arrow {
-    transform: rotate(180deg);
-    background: var(--blue);
-    color: var(--blue);
-}
+      transform: rotate(180deg);
+      background: var(--blue);
+      color: var(--blue);
+    }
 
     .srv-body p {
       font-size: 14px;
@@ -1101,22 +1101,37 @@
       gap: 24px;
       z-index: 10000;
     }
+
     .cookie-text p {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.8);
       margin: 0;
     }
+
     .cookie-text a {
       color: var(--blue);
       text-decoration: underline;
     }
+
     .cookie-buttons {
       display: flex;
       gap: 12px;
       flex-shrink: 0;
     }
+
     @media(max-width:700px) {
-      .cookie-banner { flex-direction: column; align-items: stretch; }
+      .login-box {
+        grid-template-columns: 1fr !important;
+      }
+
+      .login-box>div {
+        padding: 32px !important;
+      }
+
+      .cookie-banner {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
 
     /* TOAST */
@@ -1237,6 +1252,8 @@
       <li><a data-page="industrias" onclick="navigate('industrias')">Industrias</a></li>
       <li><a data-page="nosotros" onclick="navigate('nosotros')">Nosotros</a></li>
       <li><a data-page="partners" onclick="navigate('partners')">Partners</a></li>
+      <li><a data-page="login" onclick="navigate('login')" style="color: var(--blue); font-weight: 600;">Acceso
+          Clientes</a></li>
       <li><a data-page="contacto" onclick="navigate('contacto')" class="nav-cta">Contacto</a></li>
     </ul>
     <button class="nav-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -1247,11 +1264,15 @@
   <!-- COOKIES BANNER -->
   <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-text">
-      <p>Utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Puedes obtener más información y configurar tus preferencias en nuestra <a href="#">Política de Cookies</a>.</p>
+      <p>Utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada
+        con tus preferencias en base a un perfil elaborado a partir de tus hábitos de navegación. Puedes obtener más
+        información y configurar tus preferencias en nuestra <a href="#">Política de Cookies</a>.</p>
     </div>
     <div class="cookie-buttons">
-      <button class="btn-outline" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Rechazar</button>
-      <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Aceptar todas</button>
+      <button class="btn-outline" style="padding: 10px 20px; font-size: 14px;"
+        onclick="acceptCookies()">Rechazar</button>
+      <button class="btn-primary" style="padding: 10px 20px; font-size: 14px;" onclick="acceptCookies()">Aceptar
+        todas</button>
     </div>
   </div>
 
@@ -1260,10 +1281,10 @@
   <script>
     function acceptCookies() {
       document.getElementById('cookieBanner').style.display = 'none';
-      try { localStorage.setItem('cookiesAccepted', 'true'); } catch(e) {}
+      try { localStorage.setItem('cookiesAccepted', 'true'); } catch (e) { }
     }
 
-    if(localStorage.getItem('cookiesAccepted')) {
+    if (localStorage.getItem('cookiesAccepted')) {
       const cb = document.getElementById('cookieBanner');
       if (cb) cb.style.display = 'none';
     }
@@ -1338,6 +1359,12 @@ ${footer()}</div>`;
 
       soluciones() {
         const cards = [
+          [
+            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+            'Hosting Web Empresarial',
+            'Servidores dedicados y alojamiento de alto rendimiento con certificados SSL, copias de seguridad diarias y panel de control intuitivo.',
+            'Web & Servidores'
+          ],
           ['<path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>', 'Cloud Soberano', 'Despliegue híbrido y multi-cloud con cumplimiento normativo nacional. Migración, optimización y gestión continua sobre AWS, Azure y nube privada.', 'Arquitectura híbrida'],
           ['<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>', 'Ciberseguridad 360°', 'SOC gestionado, gestión de identidades, protección de endpoints, inteligencia de amenazas y respuesta a incidentes con SLA garantizado.', 'Zero Trust'],
           ['<path d="M5 12h14M12 5l7 7-7 7"/><circle cx="5" cy="12" r="2"/>', 'Telecomunicaciones', 'Redes WAN/SD-WAN, conectividad dedicada, voz empresarial y soluciones IoT para infraestructuras críticas nacionales e internacionales.', 'SD-WAN & MPLS'],
@@ -1362,6 +1389,47 @@ ${footer()}</div>`;
   </div>
 </div>
 ${footer()}</div>`;
+      },
+
+      login() {
+        return `<div class="page" style="min-height: calc(100vh - 68px); display: flex; align-items: center; justify-content: center; background: var(--gray2); padding: 40px 5vw;">
+        <div class="login-box" style="background: var(--white); width: 100%; max-width: 950px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; min-height: 550px;">
+          
+          <!-- Lado Oscuro -->
+          <div style="background: var(--ink); padding: 48px; color: var(--white); display: flex; flex-direction: column; justify-content: center;">
+            <span class="sol-tag" style="background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; align-self: flex-start;">Portal de Clientes</span>
+            <h2 style="font-family: var(--font-head); font-size: 36px; margin-bottom: 16px; line-height: 1.1;">Tu infraestructura,<br>bajo control</h2>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.6;">Gestiona tus servidores, alojamiento web y servicios cloud desde un único panel de control centralizado y completamente seguro.</p>
+            <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.9); font-size: 14px;">
+              <li style="margin-bottom: 12px; display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> Facturación y métricas en tiempo real</li>
+              <li style="margin-bottom: 12px; display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> Despliegue de entornos en 1 clic</li>
+              <li style="display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> Soporte técnico prioritario</li>
+            </ul>
+          </div>
+
+          <!-- Lado Claro (Login) -->
+          <div style="padding: 48px; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-family: var(--font-head); font-size: 24px; color: var(--ink); margin-bottom: 24px;">Iniciar sesión</h3>
+            <div class="form-row" style="margin-bottom: 16px;">
+              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 7px;">Email corporativo</label>
+              <input type="email" placeholder="tu@empresa.com" style="width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 9px; padding: 11px 15px; font-size: 14px; font-family: var(--font-body); color: var(--ink); outline: none; box-sizing:border-box;">
+            </div>
+            <div class="form-row" style="margin-bottom: 24px;">
+              <label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 7px;">Contraseña</label>
+              <input type="password" placeholder="••••••••" style="width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 9px; padding: 11px 15px; font-size: 14px; font-family: var(--font-body); color: var(--ink); outline: none; box-sizing:border-box;">
+            </div>
+            <button class="btn-primary" style="width: 100%; margin-bottom: 24px; text-align: center;" onclick="window.location.href='#'">Acceder a mi panel →</button>
+            
+            <!-- Separador (Registro) -->
+            <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 24px;">
+              <p style="font-size: 14px; color: var(--gray); margin-bottom: 12px;">¿Todavía no tienes cuenta?</p>
+              <button class="btn-outline" style="width: 100%; border-color: var(--blue); color: var(--blue); text-align: center; background: rgba(10, 95, 214, 0.05);" onclick="window.location.href='#'">Registrar una cuenta nueva</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      ${footer()}</div>`;
       },
 
       servicios() {
@@ -1574,7 +1642,8 @@ ${footer()}</div>`;
       app.innerHTML = pages[page]();
       window.scrollTo({ top: 0, behavior: 'instant' });
       updateActive(page);
-      const titles = { inicio: 'INTEGRA SOLUCIONES — Infraestructura Digital End-to-End', soluciones: 'Soluciones — INTEGRA SOLUCIONES', servicios: 'Servicios — INTEGRA SOLUCIONES', industrias: 'Industrias — INTEGRA SOLUCIONES', nosotros: 'Nosotros — INTEGRA SOLUCIONES', partners: 'Partners — INTEGRA SOLUCIONES', contacto: 'Contacto — INTEGRA SOLUCIONES' };
+      const titles = { inicio: 'INTEGRA SOLUCIONES — Infraestructura Digital End-to-End', soluciones: 'Soluciones — INTEGRA SOLUCIONES', servicios: 'Servicios — INTEGRA SOLUCIONES', industrias: 'Industrias — INTEGRA SOLUCIONES', nosotros: 'Nosotros — INTEGRA SOLUCIONES', partners: 'Partners — INTEGRA SOLUCIONES', contacto: 'Contacto — INTEGRA SOLUCIONES', login: 'Acceso Clientes — INTEGRA SOLUCIONES' };
+      login: 'Acceso Clientes — INTEGRA SOLUCIONES'
       document.title = titles[page] || 'INTEGRA SOLUCIONES';
       history.pushState({ page }, '', '#' + page);
       afterRender(page);

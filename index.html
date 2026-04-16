@@ -1227,20 +1227,6 @@
         grid-template-columns: 1fr
       }
     }
-
-    /* HOVER ACCESO CLIENTES */
-    .nav-login-btn {
-      color: var(--blue);
-      font-weight: 600;
-      border: 1px solid var(--sky);
-      padding: 6px 14px;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-      cursor: pointer;
-    }
-    .nav-login-btn:hover {
-      background: rgba(10, 95, 214, 0.08);
-    }
   </style>
 </head>
 
@@ -1266,7 +1252,7 @@
       <li><a data-page="industrias" onclick="navigate('industrias')">Industrias</a></li>
       <li><a data-page="nosotros" onclick="navigate('nosotros')">Nosotros</a></li>
       <li><a data-page="partners" onclick="navigate('partners')">Partners</a></li>
-      <li><a class="nav-login-btn" data-page="login" onclick="navigate('login')">Acceso
+      <li><a data-page="login" onclick="navigate('login')" style="color: var(--blue); font-weight: 600; border: 1px solid var(--sky); padding: 6px 14px; border-radius: 6px; transition: background 0.3s;">Acceso
           Clientes</a></li>
       <li><a data-page="contacto" onclick="navigate('contacto')" class="nav-cta">Contacto</a></li>
     </ul>
@@ -1744,21 +1730,15 @@ ${footer()}</div>`;
         });
       }
 
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
       document.querySelectorAll('.sol-card,.ind-card,.val-card,.tl-item,.partner-pill,.srv-module,.contact-item').forEach((el, i) => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(24px)';
-        el.style.transition = `opacity 0.6s ease ${Math.min(i * 0.05, 0.4)}s, transform 0.6s ease ${Math.min(i * 0.05, 0.4)}s`;
-        observer.observe(el);
+        el.style.transform = 'translateY(14px)';
+        el.style.transition = `opacity 0.38s ease ${Math.min(i * 0.05, 0.5)}s, transform 0.38s ease ${Math.min(i * 0.05, 0.5)}s`;
+
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }));
       });
     }
 

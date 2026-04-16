@@ -1423,13 +1423,58 @@ ${footer()}</div>`;
             <!-- Separador (Registro) -->
             <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 24px;">
               <p style="font-size: 14px; color: var(--gray); margin-bottom: 12px;">¿Todavía no tienes cuenta?</p>
-              <button class="btn-outline" style="width: 100%; border-color: var(--blue); color: var(--blue); text-align: center; background: rgba(10, 95, 214, 0.05);" onclick="window.location.href='#'">Registrar una cuenta nueva</button>
+              <button class="btn-outline" style="width: 100%; border-color: var(--blue); color: var(--blue); text-align: center; background: rgba(10, 95, 214, 0.05);" onclick="navigate('registro')">Registrar una cuenta nueva</button>
             </div>
           </div>
 
         </div>
       </div>
       ${footer()}</div>`;
+      },
+      registro() {
+        return `<div class="page" style="min-height: calc(100vh - 68px); display: flex; align-items: center; justify-content: center; background: var(--gray2); padding: 40px 5vw;">
+          <div class="login-box" style="background: var(--white); width: 100%; max-width: 950px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-lg); display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; min-height: 550px;">
+            
+            <div style="background: var(--ink); padding: 48px; color: var(--white); display: flex; flex-direction: column; justify-content: center;">
+              <span class="sol-tag" style="background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px; align-self: flex-start;">Nuevos Clientes</span>
+              <h2 style="font-family: var(--font-head); font-size: 36px; margin-bottom: 16px; line-height: 1.1;">Comienza tu<br>transformación</h2>
+              <p style="color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.6;">Únete a cientos de empresas que ya confían en nuestra infraestructura para sus proyectos críticos.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; color: rgba(255,255,255,0.9); font-size: 14px;">
+                <li style="margin-bottom: 12px; display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> Consultoría inicial gratuita</li>
+                <li style="margin-bottom: 12px; display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> Migración sin cortes de servicio</li>
+                <li style="display:flex; gap:10px;"><span style="color:var(--accent)">✓</span> SLAs de hasta 99.99%</li>
+              </ul>
+            </div>
+
+            <div style="padding: 48px; display: flex; flex-direction: column; justify-content: center;">
+              <h3 style="font-family: var(--font-head); font-size: 24px; color: var(--ink); margin-bottom: 24px;">Crear una cuenta</h3>
+              
+              <div class="form-row" style="margin-bottom: 16px;">
+                <label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 7px;">Nombre de la empresa</label>
+                <input type="text" placeholder="Ej. ACME Corp" style="width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 9px; padding: 11px 15px; font-size: 14px; font-family: var(--font-body); color: var(--ink); outline: none; box-sizing:border-box;">
+              </div>
+              
+              <div class="form-row" style="margin-bottom: 16px;">
+                <label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 7px;">Email corporativo</label>
+                <input type="email" placeholder="tu@empresa.com" style="width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 9px; padding: 11px 15px; font-size: 14px; font-family: var(--font-body); color: var(--ink); outline: none; box-sizing:border-box;">
+              </div>
+              
+              <div class="form-row" style="margin-bottom: 24px;">
+                <label style="display: block; font-size: 13px; font-weight: 500; color: var(--ink2); margin-bottom: 7px;">Contraseña</label>
+                <input type="password" placeholder="••••••••" style="width: 100%; background: var(--white); border: 1px solid var(--border); border-radius: 9px; padding: 11px 15px; font-size: 14px; font-family: var(--font-body); color: var(--ink); outline: none; box-sizing:border-box;">
+              </div>
+              
+              <button class="btn-primary" style="width: 100%; margin-bottom: 24px; text-align: center;" onclick="window.location.href='#'">Completar registro →</button>
+              
+              <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 24px;">
+                <p style="font-size: 14px; color: var(--gray); margin-bottom: 12px;">¿Ya eres cliente de INTEGRA?</p>
+                <button class="btn-outline" style="width: 100%; border-color: var(--blue); color: var(--blue); text-align: center; background: rgba(10, 95, 214, 0.05);" onclick="navigate('login')">Volver a iniciar sesión</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        ${footer()}</div>`;
       },
 
       servicios() {
@@ -1643,7 +1688,6 @@ ${footer()}</div>`;
       window.scrollTo({ top: 0, behavior: 'instant' });
       updateActive(page);
       const titles = { inicio: 'INTEGRA SOLUCIONES — Infraestructura Digital End-to-End', soluciones: 'Soluciones — INTEGRA SOLUCIONES', servicios: 'Servicios — INTEGRA SOLUCIONES', industrias: 'Industrias — INTEGRA SOLUCIONES', nosotros: 'Nosotros — INTEGRA SOLUCIONES', partners: 'Partners — INTEGRA SOLUCIONES', contacto: 'Contacto — INTEGRA SOLUCIONES', login: 'Acceso Clientes — INTEGRA SOLUCIONES' };
-      login: 'Acceso Clientes — INTEGRA SOLUCIONES'
       document.title = titles[page] || 'INTEGRA SOLUCIONES';
       history.pushState({ page }, '', '#' + page);
       afterRender(page);

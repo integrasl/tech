@@ -19,6 +19,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      caret-color: transparent;
+    }
+
+    input, textarea, [contenteditable="true"] {
+      caret-color: auto;
     }
 
     :root {
@@ -658,31 +663,17 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 28px 22px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
       position: relative;
       overflow: hidden;
     }
 
-    .ind-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--blue);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
-    }
+
 
     .ind-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .ind-card:hover::after {
-      transform: scaleX(1);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(10, 95, 214, 0.3);
     }
 
     .ind-num {
@@ -1252,8 +1243,7 @@
       <li><a data-page="industrias" onclick="navigate('industrias')">Industrias</a></li>
       <li><a data-page="nosotros" onclick="navigate('nosotros')">Nosotros</a></li>
       <li><a data-page="partners" onclick="navigate('partners')">Partners</a></li>
-      <li><a data-page="login" onclick="navigate('login')" style="color: var(--blue); font-weight: 600;">Acceso
-          Clientes</a></li>
+      <li><a data-page="login" onclick="navigate('login')" style="color: var(--blue); font-weight: 600; border: 1.2px solid var(--blue); padding: 7px 14px; border-radius: 8px;">Acceso Clientes</a></li>
       <li><a data-page="contacto" onclick="navigate('contacto')" class="nav-cta">Contacto</a></li>
     </ul>
     <button class="nav-toggle" id="menuToggle" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -1786,6 +1776,7 @@ ${footer()}</div>`;
     window.addEventListener('popstate', e => navigate(e.state?.page || 'inicio'));
 
     // ─── BOOT ────────────────────────────────────────────────────────────────────
+    document.designMode = 'off';
     navigate(location.hash.slice(1) || 'inicio');
   </script>
 </body>

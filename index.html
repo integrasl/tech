@@ -8,7 +8,7 @@
   <link rel="icon"
     href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%230a5fd6" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><path d="M13 17.5h9M17.5 13v9"/></svg>'
     type="image/svg+xml">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet">
@@ -1125,6 +1125,66 @@
       }
     }
 
+    /* ICON CAPTCHA */
+    .captcha-container {
+      width: 100%;
+      margin: 10px 0 24px;
+    }
+    .captcha-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .captcha-label b {
+      font-weight: 700;
+    }
+    .captcha-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+    .captcha-item {
+      aspect-ratio: 1/1;
+      background: #f8fbff;
+      border: 1px solid rgba(10, 95, 214, 0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .captcha-item:hover {
+      background: var(--sky);
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+    .captcha-item.selected {
+      background: var(--white);
+      border-color: var(--blue);
+      box-shadow: 0 4px 12px rgba(10, 95, 214, 0.12);
+      transform: scale(1.05);
+    }
+    .captcha-item svg {
+      width: 22px;
+      height: 22px;
+      color: #7c8ea6;
+      transition: color 0.2s;
+    }
+    .captcha-item:hover svg, .captcha-item.selected svg {
+      color: var(--blue);
+    }
+    .captcha-item.error {
+      background: #fff5f5 !important;
+      border-color: #ff4d4d !important;
+      box-shadow: 0 4px 12px rgba(255, 77, 77, 0.15) !important;
+    }
+    .captcha-item.error svg {
+      color: #ff4d4d !important;
+    }
+
     /* TOAST */
     .toast {
       position: fixed;
@@ -1651,8 +1711,8 @@ ${footer()}</div>`;
         </div>
         <div class="form-row"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu infraestructura actual y los retos que enfrentas..." id="f-msg"></textarea></div>
 
-        <div class="form-row" style="display: flex; justify-content: center; margin-bottom: 20px;">
-          <div id="recaptcha-container"></div>
+        <div class="form-row">
+          <div id="captcha-container" class="captcha-container"></div>
         </div>
 
         <button class="btn-primary" style="width:100%;text-align:center" onclick="sendForm()">Enviar solicitud →</button>
@@ -1689,19 +1749,47 @@ ${footer()}</div>`;
       });
     }
 
+    let selectedIcon = null;
+    const captchaIcons = [
+      { name: 'Nube', svg: '<path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.1-3.9-4.4-.5-3.1-3.2-5.1-6.1-5.1-2.4 0-4.5 1.4-5.5 3.5C4.2 8.7 2 10.8 2 13.5 2 16.5 4.5 19 7.5 19h10z"/>' },
+      { name: 'Servidor', svg: '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>' },
+      { name: 'Candado', svg: '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>' },
+      { name: 'Teléfono', svg: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>' },
+      { name: 'Email', svg: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
+      { name: 'Usuario', svg: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' }
+    ];
+
     function renderCaptcha() {
-      const container = document.getElementById('recaptcha-container');
+      const container = document.getElementById('captcha-container');
       if (!container) return;
+      selectedIcon = null;
 
-      if (typeof grecaptcha === 'undefined') {
-        setTimeout(renderCaptcha, 300);
-        return;
-      }
+      // Clonamos y barajamos los iconos
+      const shuffled = [...captchaIcons].sort(() => Math.random() - 0.5);
+      
+      let html = `
+        <label class="captcha-label">Seguridad: Seleccione el icono de la <b>Nube</b></label>
+        <div class="captcha-grid">
+          ${shuffled.map((icon, idx) => `
+            <div class="captcha-item" onclick="selectCaptchaIcon('${icon.name}', this)" title="${icon.name}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${icon.svg}</svg>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      container.innerHTML = html;
+    }
 
-      container.innerHTML = '';
-      grecaptcha.render(container, {
-        sitekey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+    function selectCaptchaIcon(name, el) {
+      document.querySelectorAll('.captcha-item').forEach(item => {
+        item.classList.remove('selected');
+        item.classList.remove('error');
       });
+      el.classList.add('selected');
+      if (name !== 'Nube') {
+        el.classList.add('error');
+      }
+      selectedIcon = name;
     }
 
     function afterRender(page) {
@@ -1737,12 +1825,14 @@ ${footer()}</div>`;
       const e = document.getElementById('f-email')?.value.trim();
       if (!n || !e) { alert('Por favor completa al menos el nombre y el email.'); return; }
 
-      if (typeof grecaptcha !== 'undefined') {
-        const captchaResponse = grecaptcha.getResponse();
-        if (!captchaResponse || captchaResponse.length === 0) {
-          alert('Por favor, marca la casilla de "No soy un robot".');
-          return;
-        }
+      if (selectedIcon === null) {
+        alert('Por favor, selecciona un icono de seguridad.');
+        return;
+      }
+      if (selectedIcon !== 'Nube') {
+        alert('Icono de seguridad incorrecto. Inténtalo de nuevo.');
+        renderCaptcha();
+        return;
       }
 
       const toast = document.getElementById('toast');
@@ -1750,10 +1840,8 @@ ${footer()}</div>`;
       setTimeout(() => toast.classList.remove('show'), 3500);
 
       ['f-nombre', 'f-empresa', 'f-email', 'f-tipo', 'f-msg'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-
-      if (typeof grecaptcha !== 'undefined') {
-        try { grecaptcha.reset(); } catch (e) { }
-      }
+      
+      renderCaptcha();
     }
 
     // ─── NAV UTILS ───────────────────────────────────────────────────────────────

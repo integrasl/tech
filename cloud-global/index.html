@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlobalCloudGroup &ndash; Security &amp; IT Business Solutions</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="colores.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="topbar">
+    <span data-i18n="topbarText">Security &amp; IT Business Solutions</span>
+    <span><a href="mailto:mail@cloudglobal.es">mail@cloudglobal.es</a>&ensp;&middot;&ensp;<a
+        href="tel:+34617326622">+34 617 326 622</a></span>
+  </div>
+  <nav>
+    <div class="nav-wrap">
+      <div class="logo" onclick="navigate('home')"><img
+          src="logo.jpg"
+          alt="GlobalCloudGroup" /></div>
+      <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+      <ul class="nav-menu" id="navMenu" style="margin-left:auto">
+        <li class="nav-item"><span class="nav-link" onclick="navigate('home')" data-page="home"><span data-i18n="navInicio">Inicio</span></span></li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('suscripciones')" data-page="suscripciones"><span data-i18n="navSuscripciones">Suscripciones</span></span></li>
+        <li class="nav-item" id="dropHosting">
+          <span class="nav-link" onclick="toggleDrop('dropHosting')" data-page="hosting"><span data-i18n="navHosting">Hosting Web</span>
+            <svg class="nav-chevron" viewBox="0 0 12 12">
+              <polyline points="2,4 6,8 10,4" />
+            </svg>
+          </span>
+          <div class="nav-dropdown">
+            <a href="#" onclick="navigate('hosting');return false" data-i18n="dropHosting1">Hosting Web</a>
+            <a href="#" onclick="navigate('planes');return false" data-i18n="dropHosting2">Planes de Hosting</a>
+          </div>
+        </li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('alquiler-tec')" data-page="alquiler-tec"><span data-i18n="navAlquiler">Alquiler Tecnol&oacute;gico</span></span></li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('bare-metal')" data-page="bare-metal"><span data-i18n="navBareMetal">Servicios Bare Metal</span></span></li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('productos')" data-page="productos"><span data-i18n="navProductos">Productos</span></span></li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('partners')" data-page="partners"><span data-i18n="navPartners">Partners</span></span></li>
+        <li class="nav-item"><span class="nav-link" onclick="navigate('digital')" data-page="digital"><span data-i18n="navDigital">Digital Transformation</span></span></li>
+        <li class="nav-item" id="dropCloud">
+          <span class="nav-link" onclick="toggleDrop('dropCloud')" data-page="cloud"><span data-i18n="navCloud">Cloud Soberana</span>
+            <svg class="nav-chevron" viewBox="0 0 12 12">
+              <polyline points="2,4 6,8 10,4" />
+            </svg>
+          </span>
+          <div class="nav-dropdown">
+            <a href="#" onclick="navigate('cloud');return false" data-i18n="dropCloud1">Cloud</a>
+            <a href="#" onclick="navigate('cloud-privada');return false" data-i18n="dropCloud2">Nube Privada Empresarial</a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-pill" onclick="toggleTheme()">
+          <span id="themeLabel" data-i18n="modeDark">Modo oscuro</span>
+        </div>
+        <div class="lang-switcher" style="position:relative;">
+          <span class="lang-btn active" id="lang-selected" onclick="toggleLangDrop()" style="display:flex;align-items:center;gap:4px;cursor:pointer;">
+            ES
+            <svg width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="2,4 6,8 10,4"/>
+            </svg>
+          </span>
+          <div id="lang-drop" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:var(--nav-bg);border:1px solid var(--nav-border);border-radius:6px;overflow:hidden;z-index:999;min-width:60px;box-shadow:0 6px 20px rgba(0,0,0,0.1);">
+            <span class="lang-btn" onclick="setLang('es');toggleLangDrop()" style="display:block;padding:7px 14px;">ES</span>
+            <span class="lang-btn" onclick="setLang('en');toggleLangDrop()" style="display:block;padding:7px 14px;">EN</span>
+            <span class="lang-btn" onclick="setLang('fr');toggleLangDrop()" style="display:block;padding:7px 14px;">FR</span>
+          </div>
+</div>
+        <span class="btn-nav" style="cursor:pointer;background:transparent;border:1px solid var(--accent);color:var(--accent);" onclick="navigate('login')">
+          &#x2192; Acceso a Clientes
+        </span>
+        <span class="btn-nav" id="btn-contact" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="navContact">Contactar</span>
+      </div>
+    </div>
+  </nav>
+  <div class="page active" id="page-home">
+    <section class="home-hero">
+      <div class="home-hero-inner">
+        <div class="eyebrow" data-i18n="heroEyebrow">Transformaci&oacute;n Digital</div>
+        <h1 class="display-title" data-i18n="heroTitle">Soluciones IT para<br />empresas <em>que avanzan</em></h1>
+        <p class="lead" data-i18n="heroDesc">Infraestructura cloud soberana, ciberseguridad avanzada y servicios gestionados para
+          organizaciones que exigen fiabilidad y rendimiento real.</p>
+        <div class="hero-btns">
+          <span class="btn-primary" style="cursor:pointer" onclick="navigate('hosting')" data-i18n="heroBtn1">Explorar servicios</span>
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="heroBtn2">Hablar con un experto</span>
+        </div>
+      </div>
+    </section>
+    <section class="home-services"><div class="section-wrap">
+        <div class="eyebrow" data-i18n="servEyebrow">Nuestros servicios</div>
+        <h2 class="display-title" data-i18n="servTitle">Todo lo que tu empresa necesita</h2>
+        <p class="lead" data-i18n="servDesc">Desde servidores f&iacute;sicos hasta cloud soberana, cubrimos cada capa de tu infraestructura
+          tecnol&oacute;gica.</p>
+        <div class="card-grid cols-3">
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=700&q=75" alt="Servidores" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1" />
+                <rect x="2" y="10" width="20" height="5" rx="1" />
+                <rect x="2" y="17" width="20" height="5" rx="1" />
+              </svg></div>
+            <h3 data-i18n="serv1T">Servidores F&iacute;sicos</h3>
+            <p data-i18n="serv1Desc">Infraestructura de alto rendimiento con m&aacute;xima fiabilidad para aplicaciones cr&iacute;ticas.</p>
+          </div>
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=75" alt="IT" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg></div>
+            <h3 data-i18n="serv2T">Infraestructura IT</h3>
+            <p data-i18n="serv2Desc">Soluciones completas adaptadas a cada organizaci&oacute;n.</p>
+          </div>
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=75" alt="Seguridad" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6l-8-4z" />
+              </svg></div>
+            <h3 data-i18n="serv3T">Seguridad Digital</h3>
+            <p data-i18n="serv3Desc">Protecci&oacute;n frente a amenazas con ciberseguridad integrada.</p>
+          </div>
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=700&q=75" alt="Cloud" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+              </svg></div>
+            <h3 data-i18n="serv4T">Cloud Computing</h3>
+            <p data-i18n="serv4Desc">Infraestructura flexible y escalable para optimizar operaciones.</p>
+          </div>
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=700&q=75" alt="Telecom" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+              </svg></div>
+            <h3 data-i18n="serv5T">Telecomunicaciones</h3>
+            <p data-i18n="serv5Desc">Comunicaci&oacute;n moderna integrando voz, datos y m&oacute;viles.</p>
+          </div>
+          <div class="g-card animate"><img class="g-card-img"
+              src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=700&q=75" alt="Soporte" />
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 18v-6a9 9 0 0118 0v6" />
+                <path
+                  d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
+              </svg></div>
+            <h3 data-i18n="serv6T">Soporte T&eacute;cnico 24/7</h3>
+            <p data-i18n="serv6Desc">Asistencia experta para garantizar la continuidad de tus servicios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:32px 20px 32px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;">
+      <a href="https://integrasl.github.io/tech/" target="_blank" rel="noopener"
+        style="display:flex;align-items:center;justify-content:center;padding:18px 32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:box-shadow .2s,border-color .2s;cursor:pointer;text-decoration:none;"
+        onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.13)';this.style.borderColor='var(--accent)'"
+        onmouseout="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.borderColor='var(--border)'">
+        <img src="asset 10.png" alt="Integra" style="height:48px;width:auto;object-fit:contain;">
+      </a>
+      <a href="#" onclick="navigate('home');return false;"
+        style="display:flex;align-items:center;justify-content:center;padding:18px 32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:box-shadow .2s,border-color .2s;cursor:pointer;text-decoration:none;"
+        onmouseover="this.style.boxShadow='0 8px 28px rgba(0,0,0,0.13)';this.style.borderColor='var(--accent)'"
+        onmouseout="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.06)';this.style.borderColor='var(--border)'">
+        <img src="logo.jpg" alt="Cloud Global" style="height:48px;width:auto;object-fit:contain;">
+      </a>
+    </section>
+
+    <section class="stats-band">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-num" data-target="19"></div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="+200">200+</div>
+          <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="+500">500+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="+50">50+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="page" id="page-suscripciones">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcSuscripciones">Suscripciones</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="subsEyebrow">Suscripciones</div>
+      <h1 class="display-title" data-i18n="subsTitle">Suscripciones</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="subsDesc">Descubre nuestras soluciones y suscripciones</p>
+    </div>
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="subs-grid">
+          <div class="subs-card animate">
+            <div class="subs-card-img"><img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=75" alt="Alojamiento" /></div>
+            <div class="subs-card-body">
+              <div class="subs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="5" rx="1" />
+                  <rect x="2" y="10" width="20" height="5" rx="1" />
+                  <line x1="2" y1="17" x2="8" y2="17" />
+                </svg></div>
+              <h3 data-i18n="subsCard1T">Planes de Alojamiento</h3>
+              <p data-i18n="subsCard1Desc">Alojamiento web profesional para tu sitio</p><span class="btn-primary subs-btn"
+                onclick="navigate('planes')" data-i18n="subsCard1Btn">Ver Planes de Alojamiento</span>
+            </div>
+          </div>
+          <div class="subs-card animate">
+            <div class="subs-card-img"><img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75" alt="Alquiler" /></div>
+            <div class="subs-card-body">
+              <div class="subs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg></div>
+              <h3 data-i18n="subsCard2T">Planes de Alquiler</h3>
+              <p data-i18n="subsCard2Desc">Soluciones flexibles de alquiler tecnol&oacute;gico</p><span class="btn-primary subs-btn"
+                onclick="navigate('alquiler')" data-i18n="subsCard2Btn">Ver Planes de Alquiler</span>
+            </div>
+          </div>
+          <div class="subs-card animate">
+            <div class="subs-card-img"><img
+                src="https://media.istockphoto.com/id/2201630657/es/foto/aplicaciones-de-correo-electr%C3%B3nico-gmail-outlook-apple-mail.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=gfwKn7qldlFYvPSKsx8xhiR77MIR9AN5u6bKxDmTIJk="
+                alt="Correo" /></div>
+            <div class="subs-card-body">
+              <div class="subs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg></div>
+              <h3 data-i18n="subsCard3T">Soluciones de Correo Electr&oacute;nico Profesional</h3>
+              <p data-i18n="subsCard3Desc">Protege tus comunicaciones con cifrado de extremo a extremo y protecci&oacute;n avanzada.</p><span
+                class="btn-primary subs-btn" onclick="navigate('correo')" data-i18n="subsCard3Btn">Explorar Nuestras Soluciones Seguras</span>
+            </div>
+          </div>
+          <div class="subs-card animate">
+            <div class="subs-card-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75"
+                alt="DAAS" /></div>
+            <div class="subs-card-body">
+              <div class="subs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="3" width="13" height="10" rx="1" />
+                  <rect x="11" y="11" width="11" height="10" rx="1" />
+                  <path d="M2 17h9" />
+                </svg></div>
+              <h3 data-i18n="subsCard4T">Agente Digital como Servicio (DAAS)</h3>
+              <p data-i18n="subsCard4Desc">Impulsa la transformaci&oacute;n digital de tu empresa</p><span class="btn-primary subs-btn"
+                onclick="navigate('daas')" data-i18n="subsCard4Btn">Ver Servicios DAAS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="page" id="page-alquiler-tec">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcAlquiler">Alquiler Tecnológico</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="rentingEyebrow">Renting Tecnol&oacute;gico</div>
+      <h1 class="display-title" data-i18n="rentingTitle">Alquiler Tecnol&oacute;gico</h1>
+      <p class="lead" style="margin:0 auto">Transforme su empresa con soluciones flexibles de renting tecnol&oacute;gico
+        que se adaptan a sus necesidades</p>
+    </div>
+    <section style="padding:0 28px 56px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1" />
+                <rect x="2" y="10" width="20" height="5" rx="1" />
+                <line x1="2" y1="17" x2="12" y2="17" />
+              </svg></div>
+            <h3 data-i18n="renting1T">Servidores Dedicados</h3>
+            <p data-i18n="renting1Desc">Servidores dedicados de alto rendimiento con acceso root completo y configuraciones personalizadas.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <h3 data-i18n="renting2T">Seguridad Primero</h3>
+            <p data-i18n="renting2Desc">Seguridad empresarial con protecci&oacute;n DDoS y actualizaciones regulares.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg></div>
+            <h3 data-i18n="renting3T">Soporte 24/7</h3>
+            <p data-i18n="renting3Desc">Soporte t&eacute;cnico y monitoreo continuo para sus servidores alquilados.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <h2 class="display-title" style="text-align:center;margin-bottom:40px" data-i18n="rentingBenefitsTitle">Beneficios para su Empresa</h2>
+        <div class="card-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg></div>
+            <h3 data-i18n="rentingBen1T">Optimizaci&oacute;n de Costos</h3>
+            <p data-i18n="rentingBen1Desc">Reduzca el gasto de capital y convierta los costos fijos en gastos operativos flexibles.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
+              </svg></div>
+            <h3 data-i18n="rentingBen2T">Escalabilidad</h3>
+            <p data-i18n="rentingBen2Desc">Escale su infraestructura TI f&aacute;cilmente seg&uacute;n las necesidades de su negocio.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+              </svg></div>
+            <h3 data-i18n="rentingBen3T">Mantenimiento sin Preocupaciones</h3>
+            <p data-i18n="rentingBen3Desc">El mantenimiento y actualizaciones del hardware son gestionados por nuestro equipo experto.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <rect x="9" y="9" width="6" height="6" />
+                <line x1="9" y1="1" x2="9" y2="4" />
+                <line x1="15" y1="1" x2="15" y2="4" />
+                <line x1="9" y1="20" x2="9" y2="23" />
+                <line x1="15" y1="20" x2="15" y2="23" />
+                <line x1="20" y1="9" x2="23" y2="9" />
+                <line x1="20" y1="14" x2="23" y2="14" />
+                <line x1="1" y1="9" x2="4" y2="9" />
+                <line x1="1" y1="14" x2="4" y2="14" />
+              </svg></div>
+            <h3 data-i18n="rentingBen4T">&Uacute;ltima Tecnolog&iacute;a</h3>
+            <p data-i18n="rentingBen4Desc">Acceso siempre a la tecnolog&iacute;a m&aacute;s actual sin necesidad de grandes inversiones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div style="text-align:center;padding:0 28px 96px">
+      <span onclick="navigate('alquiler')"
+        style="cursor:pointer;display:inline-block;padding:11px 38px;background:#fff;color:#1a5fd4;border:2px solid #1a5fd4;border-radius:4px;font-size:14px;font-weight:600;letter-spacing:0.02em;box-sizing:border-box"
+        onmouseover="this.style.background='#f4f7fb'" onmouseout="this.style.background='#fff'" data-i18n="rentingBtn">Comenzar</span>
+    </div>
+  </div>
+  <div class="page" id="page-alquiler">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-link" onclick="navigate('suscripciones')" data-i18n="bcSuscripciones">Suscripciones</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcPlanes">Planes de Suscripción</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="plansEyebrow">Planes de Suscripci&oacute;n</div>
+      <h1 class="display-title" data-i18n="plansTitle">Planes de Suscripci&oacute;n</h1>
+      <p class="lead" style="margin:0 auto">Elija el plan de suscripci&oacute;n perfecto para las necesidades de su
+        empresa</p>
+    </div>
+    <section style="padding:0 0 96px">
+      <div class="pricing-wrap">
+        <div class="pricing-grid">
+          <div class="price-card animate">
+            <div class="price-plan-name" data-i18n="plan1Name">Suscripci&oacute;n B&aacute;sica</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">49.99</span><span
+                class="price-period" data-i18n="planPeriod">/month</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan1F1">Hardware Est&aacute;ndar</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan1F2">Soporte B&aacute;sico</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan1F3">Actualizaciones Mensuales</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-outline" onclick="return false" data-i18n="planBtn">Suscribirse Ahora</a>
+          </div>
+          <div class="price-card featured">
+            <div class="badge-popular" data-i18n="planPopular">M&aacute;s Popular</div>
+            <div class="price-plan-name" data-i18n="plan2Name">Suscripci&oacute;n Profesional</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">99.99</span><span
+                class="price-period">/month</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan2F1">Hardware Premium</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan2F2">Soporte Prioritario</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan2F3">Actualizaciones Semanales</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan2F4">Garant&iacute;a de Reemplazo de Hardware</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-white" onclick="return false" data-i18n="planBtn">Suscribirse Ahora</a>
+          </div>
+          <div class="price-card animate">
+            <div class="price-plan-name" data-i18n="plan3Name">Suscripci&oacute;n Empresarial</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">199.99</span><span
+                class="price-period">/month</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan3F1">Soluciones de Hardware Personalizadas</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan3F2">Soporte Dedicado 24/7</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan3F3">Actualizaciones en Tiempo Real</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan3F4">Reemplazo de Hardware Prioritario</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="plan3F5">Soluciones de Integraci&oacute;n Personalizadas</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-outline" onclick="return false" data-i18n="planBtn">Suscribirse Ahora</a>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:36px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('alquiler-tec')" data-i18n="bcAlquiler">&larr; Volver a Alquiler Tecnol&oacute;gico</span>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <div class="page" id="page-daas">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-link" onclick="navigate('suscripciones')" data-i18n="bcSuscripciones">Suscripciones</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcDaas">DAAS</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="daasEyebrow">Agente Digital como Servicio</div>
+      <h1 class="display-title" data-i18n="daasTitle">Agente Digital como<br /><em>Servicio (DAAS)</em></h1>
+      <p class="lead" style="margin:0 auto" data-i18n="daasDesc">Transforme su negocio con nuestras soluciones digitales</p>
+      <div class="hero-btns" style="margin-top:32px">
+        <span class="btn-primary" style="cursor:pointer" data-i18n="daasBtnStart">Get Started with DAAS</span>
+        <span class="btn-outline" style="cursor:pointer" data-i18n="consultBtn">Programar una Consulta</span>
+      </div>
+    </div>
+    <section style="padding:0 28px 64px">
+      <div class="section-wrap">
+        <div class="card-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="14" rx="2" />
+                <path d="M8 21l4-4 4 4" />
+              </svg></div>
+            <h3 data-i18n="daas1T">Soluciones de IA</h3>
+            <p data-i18n="daas1Desc">Aproveche la inteligencia artificial para operaciones m&aacute;s inteligentes.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" />
+                <path d="M15.54 8.46a5 5 0 010 7.07M8.46 8.46a5 5 0 000 7.07" />
+              </svg></div>
+            <h3 data-i18n="daas2T">Automatizaci&oacute;n de Procesos</h3>
+            <p data-i18n="daas2Desc">Automatice tareas y flujos de trabajo repetitivos.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="7" width="6" height="10" rx="1" />
+                <rect x="9" y="3" width="6" height="18" rx="1" />
+                <rect x="16" y="9" width="6" height="8" rx="1" />
+              </svg></div>
+            <h3 data-i18n="daas3T">Integraci&oacute;n de Sistemas</h3>
+            <p data-i18n="daas3Desc">Conecte sin problemas sus sistemas empresariales.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 18v-6a9 9 0 0118 0v6" />
+                <path
+                  d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
+              </svg></div>
+            <h3 data-i18n="daas4T">Soporte 24/7</h3>
+            <p data-i18n="daas4Desc">Asistencia t&eacute;cnica las 24 horas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <h2 class="display-title" style="text-align:center;margin-bottom:10px" data-i18n="daasPlansTitle">Elija su Plan DAAS</h2>
+        <p style="text-align:center;color:var(--text-2);font-size:.95rem;margin-bottom:44px" data-i18n="daasPlansDesc">Planes flexibles para
+          empresas de todos los tama&ntilde;os</p>
+        <div class="daas-grid">
+          <div class="daas-card animate">
+            <div class="daas-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg></div>
+            <h4 data-i18n="daasPlan1">Starter</h4><span class="daas-range" data-i18n="daasPlan1Range">1-10 empleados</span>
+            <div class="daas-price"><span class="daas-cur">&euro;</span>900<span class="daas-period" data-i18n="planPeriod">/mes</span></div><a
+              href="#" class="btn-plan btn-plan-outline" style="margin-top:auto" onclick="return false" data-i18n="daasBtnStart">Comience con
+              DAAS</a>
+          </div>
+          <div class="daas-card animate">
+            <div class="daas-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg></div>
+            <h4 data-i18n="daasPlan2">Profesional</h4><span class="daas-range" data-i18n="daasPlan2Range">11-30 empleados</span>
+            <div class="daas-price"><span class="daas-cur">&euro;</span>1,900<span class="daas-period" data-i18n="planPeriod">/mes</span></div><a
+              href="#" class="btn-plan btn-plan-outline" style="margin-top:auto" onclick="return false" data-i18n="daasBtnStart">Comience con
+              DAAS</a>
+          </div>
+          <div class="daas-card animate">
+            <div class="daas-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg></div>
+            <h4 data-i18n="daasPlan3">Empresa</h4><span class="daas-range" data-i18n="daasPlan3Range">31-60 empleados</span>
+            <div class="daas-price"><span class="daas-cur">&euro;</span>3,000<span class="daas-period" data-i18n="planPeriod">/mes</span></div><a
+              href="#" class="btn-plan btn-plan-outline" style="margin-top:auto" onclick="return false" data-i18n="daasBtnStart">Comience con
+              DAAS</a>
+          </div>
+          <div class="daas-card daas-card-corp">
+            <div class="daas-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg></div>
+            <h4 data-i18n="daasPlan4">Corporativo</h4><span class="daas-range" data-i18n="daasPlan4Range">Soluciones personalizadas<br />para grandes
+              organizaciones</span><a href="#" class="btn-plan"
+              style="margin-top:auto;background:var(--accent);color:#fff;border:none;border-radius:3px;padding:11px;text-align:center;font-size:13px;font-weight:600"
+              onclick="return false" data-i18n="contactSalesBtn">Contactar con Ventas</a>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:36px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('suscripciones')" data-i18n="backBtnSubs">&larr; Volver a
+            Suscripciones</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="page" id="page-bare-metal">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcBareMetal">Bare Metal</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="bareMetalEyebrow">Infraestructura</div>
+      <h1 class="display-title" data-i18n="bareMetalTitle">Servidores Bare Metal</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="bareMetalDesc">Infraestructura de servidores f&iacute;sicos de alto rendimiento con
+        m&aacute;xima fiabilidad para tus aplicaciones cr&iacute;ticas.</p>
+    </div>
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <h2 class="display-title" style="text-align:center;margin-bottom:40px;font-size:clamp(1.4rem,2.5vw,2rem)" data-i18n="bareMetalTitle">
+          Servidores Bare Metal</h2>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1" />
+                <rect x="2" y="10" width="20" height="5" rx="1" />
+                <line x1="2" y1="17" x2="12" y2="17" />
+              </svg></div>
+            <h3 data-i18n="bareMetal1T">Hardware Dedicado de Alto Rendimiento</h3>
+            <p data-i18n="bareMetal1Desc">Servidores f&iacute;sicos dedicados con acceso root completo, dise&ntilde;ados espec&iacute;ficamente
+              para satisfacer las necesidades de tu infraestructura.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg></div>
+            <h3 data-i18n="bareMetal2T">Almacenamiento Premium Seguro</h3>
+            <p data-i18n="bareMetal2Desc">Discos SSD de &uacute;ltima generaci&oacute;n que ofrecen m&aacute;ximo rendimiento y redundancia total
+              para proteger tus datos cr&iacute;ticos.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="9" y="2" width="6" height="6" rx="1" />
+                <rect x="9" y="16" width="6" height="6" rx="1" />
+                <rect x="2" y="9" width="6" height="6" rx="1" />
+                <rect x="16" y="9" width="6" height="6" rx="1" />
+                <line x1="15" y1="5" x2="16" y2="5" />
+                <line x1="15" y1="19" x2="16" y2="19" />
+                <path d="M9 5H8M9 19H8M5 9v1M5 15v-1M19 9v1M19 15v-1" />
+              </svg></div>
+            <h3 data-i18n="bareMetal3T">Conectividad de Red Segura</h3>
+            <p data-i18n="bareMetal3Desc">Conexi&oacute;n de red redundante de alta velocidad con protecci&oacute;n DDoS integrada y ancho de banda
+              garantizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  <div class="page" id="page-productos">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcProductos">Productos</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="prodEyebrow">Cat&aacute;logo</div>
+      <h1 class="display-title" data-i18n="prodTitle">Nuestros Productos</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="prodDesc">Soluciones completas para sus necesidades de infraestructura TI</p>
+    </div>
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+      <!-- Productos rediseñados -->
+      
+
+      <div class="prod-grid">
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Infraestructura con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('infraestructura')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="prodTagHardware">Hardware</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <h3 data-i18n="prod1T">Infraestructura</h3>
+          <p data-i18n="prod1Desc">Soluciones completas de servidores y redes para empresas que exigen máximo rendimiento.</p>
+        </div>
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Seguridad con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('seguridad')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="prodTagProtection">Protección</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 data-i18n="prod2T">Seguridad</h3>
+          <p data-i18n="prod2Desc">Productos y servicios integrales de seguridad para proteger tu infraestructura digital.</p>
+        </div>
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Soporte con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('soporte')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="prodTagSupport">Soporte</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+          </div>
+          <h3 data-i18n="prod3T">Soporte 24/7</h3>
+          <p data-i18n="prod3Desc">Servicio técnico y mantenimiento continuo para asegurar que sus sistemas funcionen de manera óptima.</p>
+        </div>
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Telecomunicaciones con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('telecomunicaciones')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="navTelecom">Telecomunicaciones</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          </div>
+          <h3 data-i18n="prod4T">Telecomunicaciones</h3>
+          <p data-i18n="prod4Desc">Infraestructura y servicios de telecomunicaciones empresariales adaptados a cada organización.</p>
+        </div>
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Correo con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('correo')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="prodTagEmail">Email</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </div>
+          <h3 data-i18n="prod5T">Cuentas de Correo Activanet</h3>
+          <p data-i18n="prod5Desc">Soluciones profesionales de correo electrónico para empresas</p>
+        </div>
+
+        <!-- â•â•â• MODIFICADO: Tarjeta Líneas Móviles con navegación â•â•â• -->
+        <div class="prod-card animate" onclick="navigate('moviles')" style="cursor:pointer">
+          <div class="prod-tag" data-i18n="prodTagMobile">Telefonía</div>
+          <div class="prod-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 data-i18n="prod6T">Líneas Móviles</h3>
+          <p data-i18n="prod6Desc">Planes móviles corporativos y soluciones de gestión de dispositivos.</p>
+        </div>
+
+      </div>
+</div>
+    </section>
+
+    <!-- Agentes Virtuales con IA -->
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <div
+          style="display:flex;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:48px">
+          <div style="color:var(--accent);flex-shrink:0;margin-top:2px"><svg width="20" height="20" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="14" rx="2" />
+              <path d="M8 21l4-4 4 4" />
+              <path d="M9 9h.01M12 9h.01M15 9h.01" />
+            </svg></div>
+          <div>
+            <p style="font-size:.9rem;font-weight:600;color:var(--accent);margin-bottom:4px" data-i18n="prodAIBannerT">Descubre Nuestros Agentes
+              Virtuales con IA</p>
+            <p style="font-size:.83rem;color:var(--text-2);font-weight:300;line-height:1.6" data-i18n="prodAIBannerD">Optimiza la atenci&oacute;n
+              al cliente con asistentes virtuales disponibles 24/7. Respuestas inteligentes y personalizadas basadas en
+              IA para una mejor experiencia del usuario.</p>
+          </div>
+        </div>
+        <h2 class="display-title" style="text-align:center;margin-bottom:40px;font-size:clamp(1.4rem,2.5vw,2rem)" data-i18n="prodAITitle">
+          Agentes Virtuales con IA</h2>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="14" rx="2" />
+                <path d="M8 21l4-4 4 4" />
+                <path d="M9 8h.01M12 8h.01M15 8h.01" />
+              </svg></div>
+            <h3 data-i18n="prodAI1T">Asistente Virtual 24/7</h3>
+            <p data-i18n="prodAI1Desc">Atenci&oacute;n al cliente automatizada e inteligente disponible todo el d&iacute;a.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg></div>
+            <h3 data-i18n="prodAI2T">Respuestas Inteligentes</h3>
+            <p data-i18n="prodAI2Desc">Respuestas personalizadas basadas en el contexto y el historial de interacciones.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <rect x="9" y="9" width="6" height="6" />
+                <line x1="9" y1="1" x2="9" y2="4" />
+                <line x1="15" y1="1" x2="15" y2="4" />
+                <line x1="9" y1="20" x2="9" y2="23" />
+                <line x1="15" y1="20" x2="15" y2="23" />
+                <line x1="20" y1="9" x2="23" y2="9" />
+                <line x1="20" y1="14" x2="23" y2="14" />
+                <line x1="1" y1="9" x2="4" y2="9" />
+                <line x1="1" y1="14" x2="4" y2="14" />
+              </svg></div>
+            <h3 data-i18n="prodAI3T">Automatizaci&oacute;n Avanzada</h3>
+            <p data-i18n="prodAI3Desc">Gesti&oacute;n automatizada de tareas y procesos empresariales comunes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servidores Bare Metal (en productos) -->
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <h2 class="display-title" style="text-align:center;margin-bottom:40px;font-size:clamp(1.4rem,2.5vw,2rem)" data-i18n="bareMetalTitle">
+          Servidores Bare Metal</h2>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1" />
+                <rect x="2" y="10" width="20" height="5" rx="1" />
+                <line x1="2" y1="17" x2="12" y2="17" />
+              </svg></div>
+            <h3 data-i18n="bareMetal1T">Hardware Dedicado de Alto Rendimiento</h3>
+            <p data-i18n="bareMetal1Desc">Servidores f&iacute;sicos dedicados con acceso root completo, dise&ntilde;ados espec&iacute;ficamente
+              para satisfacer las necesidades de tu infraestructura.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg></div>
+            <h3 data-i18n="bareMetal2T">Almacenamiento Premium Seguro</h3>
+            <p data-i18n="bareMetal2Desc">Discos SSD de &uacute;ltima generaci&oacute;n que ofrecen m&aacute;ximo rendimiento y redundancia total
+              para proteger tus datos cr&iacute;ticos.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="9" y="2" width="6" height="6" rx="1" />
+                <rect x="9" y="16" width="6" height="6" rx="1" />
+                <rect x="2" y="9" width="6" height="6" rx="1" />
+                <rect x="16" y="9" width="6" height="6" rx="1" />
+                <line x1="15" y1="5" x2="16" y2="5" />
+                <line x1="15" y1="19" x2="16" y2="19" />
+              </svg></div>
+            <h3 data-i18n="bareMetal3T">Conectividad de Red Segura</h3>
+            <p data-i18n="bareMetal3Desc">Conexi&oacute;n de red redundante de alta velocidad con protecci&oacute;n DDoS integrada y ancho de banda
+              garantizado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+  <div class="page" id="page-partners">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcPartners">Partners</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="partEyebrow">Colaboraciones</div>
+      <h1 class="display-title" data-i18n="partTitle">Nuestros Socios Estrat&eacute;gicos</h1>
+      <p class="lead" style="margin:0 auto">Colaboramos con empresas innovadoras para ofrecer soluciones
+        tecnol&oacute;gicas de vanguardia y ampliar nuestro alcance global.</p>
+    </div>
+    <section style="padding:0 28px 64px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg></div>
+            <h3 data-i18n="partners1T">Distribuidores Certificados</h3>
+            <p data-i18n="partners1D">Nuestros socios distribuidores son cuidadosamente seleccionados para proporcionar soluciones
+              tecnol&oacute;gicas personalizadas y soporte experto a nuestros clientes.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+              </svg></div>
+            <h3 data-i18n="partners2T">Socios Tecnol&oacute;gicos</h3>
+            <p data-i18n="partners2D">Desarrollamos colaboraciones estrat&eacute;gicas con l&iacute;deres tecnol&oacute;gicos para integrar las
+              &uacute;ltimas innovaciones en nuestros servicios.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg></div>
+            <h3 data-i18n="partners3T">Red Global</h3>
+            <p data-i18n="partners3D">Nuestra red internacional de socios nos permite extender nuestras capacidades y proporcionar soluciones
+              localizadas adaptadas a cada mercado.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:52px">
+          <span
+            style="cursor:pointer;display:inline-block;padding:11px 32px;background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:var(--radius);font-size:13.5px;font-weight:500;transition:border-color .2s,color .2s"
+            onclick="navigate('contacto')"
+            onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+            onmouseout="this.style.borderColor='';this.style.color=''" data-i18n="partBtn">Conv&iacute;ertase en Socio</span>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <!-- PÁGINA LOGIN -->
+  <div class="page" id="page-login">
+  <div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:60px 20px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 36px;width:100%;max-width:400px;box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text);text-align:center;margin-bottom:28px;">
+        Acceso a Clientes
+      </h2>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <input type="email" placeholder="m@example.com" class="form-input" id="login-email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          <input type="password" placeholder="" class="form-input" id="login-pass">
+        </div>
+      </div>
+
+      <button class="form-submit" style="margin-top:8px;" onclick="handleLogin()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/>
+        </svg>
+        Acceso a Clientes
+      </button>
+
+      <div style="text-align:center;margin-top:20px;">
+        <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">¿No tiene una cuenta?</p>
+        <button onclick="navigate('registro')" style="width:100%;padding:10px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);font-size:13.5px;font-weight:500;color:var(--text);cursor:pointer;transition:border-color .2s,color .2s;"
+          onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+          onmouseout="this.style.borderColor='';this.style.color=''">
+          Registrarse
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+   
+  <!-- PÁGINA REGISTRO -->
+  <div class="page" id="page-registro">
+  <div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:60px 20px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 36px;width:100%;max-width:520px;box-shadow:0 8px 32px rgba(0,0,0,0.08);">
+
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text);text-align:center;margin-bottom:28px;">
+        Crear Cuenta
+      </h2>
+
+      <div class="form-group">
+        <label class="form-label">Nombre completo</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <input type="text" placeholder="Nombre y apellidos" class="form-input" id="reg-name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <input type="email" placeholder="m@example.com" class="form-input" id="reg-email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          <input type="password" placeholder="" class="form-input" id="reg-pass">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Confirmar contraseña</label>
+        <div class="form-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          <input type="password" placeholder="" class="form-input" id="reg-pass2">
+        </div>
+      </div>
+
+      <button class="form-submit" style="margin-top:8px;" onclick="handleRegister()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/>
+        </svg>
+        Crear cuenta
+      </button>
+
+      <div style="text-align:center;margin-top:20px;">
+        <p style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px;">¿Ya tiene una cuenta?</p>
+        <button onclick="navigate('login')" style="width:100%;padding:10px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);font-size:13.5px;font-weight:500;color:var(--text);cursor:pointer;transition:border-color .2s,color .2s;"
+          onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+          onmouseout="this.style.borderColor='';this.style.color=''">
+          Iniciar sesión
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="page" id="page-contacto">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcContacto">Contacto</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="contEyebrow">Contacto</div>
+      <h1 class="display-title" data-i18n="contTitle">Cont&aacute;ctanos</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="contDesc">Ponte en contacto con nuestro equipo para cualquier consulta</p>
+    </div>
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="contact-layout">
+
+          <!-- Info -->
+          <div class="contact-info-box">
+            <h3 style="font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:28px">Informaci&oacute;n de
+              Contacto</h3>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.8">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg></div>
+              <div>
+                <p style="font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:3px" data-i18n="contAddrT">Direcci&oacute;n</p>
+                <p style="font-size:.85rem;color:var(--text-2);font-weight:300">Calle las Palomas n 50 Urb EL Coto Mijas
+                  Costa M&aacute;laga Spain</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.8">
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                </svg></div>
+              <div>
+                <p style="font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:3px" data-i18n="contPhoneT">Tel&eacute;fono de
+                  Contacto</p>
+                <p style="font-size:.85rem;color:var(--text-2);font-weight:300">00 34 617 326 622</p>
+              </div>
+            </div>
+            <div style="margin-top:24px">
+               <a href="#" style="font-size:.85rem;color:var(--accent);font-weight:500" data-i18n="contFormLink">Formulario de Contacto</a>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="contact-form-box">
+            <h3 style="font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:28px;text-align:center" data-i18n="contFormTitle">
+              Formulario de contacto</h3>
+            <div class="form-group">
+              <label class="form-label" data-i18n="contNameLabel">Nombre</label>
+              <div class="form-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <input type="text" placeholder="Nombre" class="form-input" data-i18n-placeholder="contNamePlaceholder" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="contEmailLabel">Correo electr&oacute;nico</label>
+              <div class="form-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input type="email" placeholder="Correo electrónico" class="form-input" data-i18n-placeholder="contEmailPlaceholder" />
+              </div>
+            </div>
+            <div class="form-group" style="display:none !important">
+              <label class="form-label">Phone Prefix</label>
+              <input type="text" name="honeypot" id="form-honeypot" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="contMsgLabel">Mensaje</label>
+              <textarea placeholder="Mensaje" class="form-textarea" data-i18n-placeholder="contMsgPlaceholder" id="form-message"></textarea>
+            </div>
+            <div class="form-group captcha-group">
+              <label class="form-label" id="captcha-label" data-i18n="contCaptchaVisual">Verificación de seguridad: Seleccione el icono de la <strong>Nube</strong></label>
+              <div class="captcha-icons-grid" id="captcha-icons-container">
+                <!-- Iconos generados por JS -->
+              </div>
+              <input type="hidden" id="form-captcha-verified" value="0" />
+            </div>
+            <button class="form-submit" onclick="submitContactForm()" data-i18n="contSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              Enviar Mensaje
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  <div class="page" id="page-digital">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcDigital">Digital Transformation</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="dtEyebrow">Innovaci&oacute;n</div>
+      <h1 class="display-title" data-i18n="dtTitle">Digital <em>Transformation</em></h1>
+      <p class="lead" style="margin:0 auto" data-i18n="dtDesc">Accelerate your business growth with our comprehensive digital
+        transformation solutions</p>
+    </div>
+
+    <!-- Why Choose + Image -->
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <div class="dt-split">
+          <div class="dt-img">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
+              alt="Digital Transformation" />
+          </div>
+          <div class="dt-text">
+            <h2
+              style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:500;margin-bottom:18px" data-i18n="dtWhyTitle">
+              Why Choose Our Services?</h2>
+            <p style="font-size:.9rem;color:var(--text-2);line-height:1.75;font-weight:300;margin-bottom:28px" data-i18n="dtWhyDesc">We help
+              organizations navigate their digital journey with tailored solutions that drive innovation, efficiency,
+              and growth. Our expert team combines industry knowledge with cutting-edge technology to deliver
+              transformative results.</p>
+            <span class="btn-primary" style="cursor:pointer;font-size:13.5px;padding:11px 26px"
+              onclick="navigate('contacto')" data-i18n="dtScheduleBtn">Schedule a Consultation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 feature cards -->
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <div class="card-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="14" rx="2" />
+                <path d="M8 21l4-4 4 4" />
+                <path d="M9 8h.01M12 8h.01M15 8h.01" />
+              </svg></div>
+            <h3 data-i18n="dt1T">Process Automation</h3>
+            <p data-i18n="dt1Desc">Streamline operations with intelligent automation solutions</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg></div>
+            <h3 data-i18n="dt2T">Digital Strategy</h3>
+            <p data-i18n="dt2Desc">Develop a comprehensive roadmap for digital success</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
+              </svg></div>
+            <h3 data-i18n="dt3T">Systems Integration</h3>
+            <p data-i18n="dt3Desc">Connect and optimize your business systems</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg></div>
+            <h3 data-i18n="dt4T">Digital Workflows</h3>
+            <p data-i18n="dt4Desc">Create efficient digital processes and workflows</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div
+          style="text-align:center;padding:52px 28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg)">
+          <h2
+            style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:500;color:var(--text);margin-bottom:24px" data-i18n="dtBannerTitle">
+            Ready to Start Your Digital Transformation?</h2>
+          <span class="btn-primary" style="cursor:pointer;font-size:14px;padding:12px 30px"
+            onclick="navigate('contacto')" data-i18n="dtBannerBtn">Contact Our Experts</span>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+  <div class="page" id="page-hosting">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-current" data-i18n="bcHosting">Hosting Web</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="hostEyebrow">Hosting Web</div>
+      <h1 class="display-title" data-i18n="hostTitle">Alojamiento web<br /><em>profesional y seguro</em></h1>
+      <p class="lead" style="margin:0 auto" data-i18n="hostDesc">Soluciones de hosting avanzadas para tu presencia online. Rendimiento
+        garantizado y soporte t&eacute;cnico 24/7.</p>
+    </div>
+    <section style="padding:0 28px 64px">
+      <div class="section-wrap">
+        <div class="eyebrow" data-i18n="hostWhyEyebrow">Por qu&eacute; elegirnos</div>
+        <h2 class="display-title" data-i18n="hostWhyTitle">Dise&ntilde;ado para rendir</h2>
+        <p class="lead" data-i18n="hostWhyDesc">Cada plan incluye todo lo que tu negocio necesita desde el primer d&iacute;a, sin costes
+          ocultos.</p>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg></div>
+            <h3 data-i18n="hostItem1T">Hosting Compartido Premium</h3>
+            <p data-i18n="hostItem1Desc">Panel de control intuitivo, recursos garantizados y herramientas de desarrollo avanzadas.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg></div>
+            <h3 data-i18n="hostItem2T">M&aacute;ximo Rendimiento</h3>
+            <p data-i18n="hostItem2Desc">Servidores con SSD NVMe, cach&eacute; optimizado y tecnolog&iacute;a CloudLinux.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0110 0v4" />
+              </svg></div>
+            <h3 data-i18n="hostItem3T">Seguridad Avanzada</h3>
+            <p data-i18n="hostItem3Desc">SSL gratuito, antimalware y copias de seguridad diarias incluidos.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:52px">
+          <span class="btn-primary" style="cursor:pointer;font-size:14px;padding:13px 32px"
+            onclick="navigate('planes')" data-i18n="hostPlanesBtn">Ver Planes de Hosting</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="page" id="page-planes">
+    <div class="breadcrumb"><span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> /
+      </span><span class="bc-link" onclick="navigate('hosting')" data-i18n="bcHosting">Hosting Web</span><span class="bc-sep"> / </span><span
+        class="bc-current" data-i18n="bcHostPlanes">Planes de Hosting</span></div>
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="hostPlanesEyebrow">Planes de Hosting</div>
+      <h1 class="display-title" data-i18n="hostPlanesTitle">Elige el plan<br /><em>que mejor se adapta</em></h1>
+      <p class="lead" style="margin:0 auto" data-i18n="hostPlanesDesc">Todos los planes incluyen migraci&oacute;n gratuita, soporte t&eacute;cnico
+        y SSL desde el primer d&iacute;a.</p>
+    </div>
+    <section style="padding:0 0 96px">
+      <div class="pricing-wrap">
+        <div class="pricing-grid">
+          <div class="price-card animate">
+            <div class="price-plan-name" data-i18n="planHostBasico">Plan B&aacute;sico</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">4.99</span><span
+                class="price-period" data-i18n="planPeriod">/mes</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF1">10 GB Almacenamiento SSD</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF2">1 Sitio Web</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF3">SSL Gratuito</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF4">Soporte 24/7</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-outline" onclick="return false" data-i18n="planHostBasicoBtn">Elegir Plan B&aacute;sico</a>
+          </div>
+          <div class="price-card featured">
+            <div class="badge-popular" data-i18n="planPopular">M&aacute;s popular</div>
+            <div class="price-plan-name" data-i18n="planHostPro">Plan Profesional</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">9.99</span><span
+                class="price-period" data-i18n="planPeriod">/mes</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF5">50 GB Almacenamiento SSD</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF6">5 Sitios Web</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF3">SSL Gratuito</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF7">Soporte Prioritario</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,0.2)" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="white" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF8">Copias Seguridad Diarias</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-white" onclick="return false" data-i18n="planHostProBtn">Elegir Plan Profesional</a>
+          </div>
+          <div class="price-card animate">
+            <div class="price-plan-name" data-i18n="planHostEmp">Plan Empresa</div>
+            <div class="price-amount"><span class="price-cur">&euro;</span><span class="price-num">19.99</span><span
+                class="price-period" data-i18n="planPeriod">/mes</span></div>
+            <ul class="price-features">
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF9">100 GB Almacenamiento SSD</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF10">Sitios Web Ilimitados</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF3">SSL Gratuito</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF11">Soporte Prioritario 24/7</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF8">Copias Seguridad Diarias</span></li>
+              <li><svg class="check-icon" viewBox="0 0 15 15" fill="none">
+                  <circle cx="7.5" cy="7.5" r="7.5" fill="#1a5fd4" opacity="0.12" />
+                  <path d="M4 7.5l2.5 2.5 4-4" stroke="#1a5fd4" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg><span data-i18n="planHostF12">Seguridad Avanzada</span></li>
+            </ul>
+            <a href="#" class="btn-plan btn-plan-outline" onclick="return false" data-i18n="planHostEmpBtn">Elegir Plan Empresa</a>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:36px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('hosting')">&larr; Volver a Hosting
+            Web</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="page" id="page-cloud">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span><span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcCloud">Cloud Soberana</span>
+    </div>
+
+    <!-- Hero Cloud -->
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="cloudEyebrow">Cloud Soberana</div>
+      <h1 class="display-title" data-i18n="cloudTitle">Infraestructura Cloud <em>Soberana</em></h1>
+      <p class="lead" style="margin:0 auto" data-i18n="cloudDesc">Soluciones cloud dise&ntilde;adas para garantizar soberan&iacute;a de datos, seguridad y rendimiento para tu organizaci&oacute;n.</p>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <div style="text-align:center;margin-bottom:40px">
+          <div class="eyebrow" data-i18n="cloudEnt1">Enterprise</div>
+          <h2 class="display-title" data-i18n="cloudEntTitle">Cloud Empresarial</h2>
+          <p style="color:var(--text-2);font-size:0.95rem;max-width:560px;margin:0 auto" data-i18n="cloudEntDesc">Soluciones cloud de nivel empresarial con recursos dedicados y arquitectura distribuida para m&aacute;ximo rendimiento.</p>
+        </div>
+        <div class="card-grid cols-2" style="max-width:900px;margin:0 auto 32px">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1"/>
+                <rect x="2" y="10" width="20" height="5" rx="1"/>
+                <line x1="2" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudEntCard1T">Recursos Dedicados</h3>
+            <p data-i18n="cloudEntCard1D">Infraestructura exclusiva con recursos garantizados y sin contenci&oacute;n, asegurando el m&aacute;ximo rendimiento para tus aplicaciones cr&iacute;ticas.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="7" height="7" rx="1"/>
+                <rect x="14" y="3" width="7" height="7" rx="1"/>
+                <rect x="3" y="14" width="7" height="7" rx="1"/>
+                <rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudEntCard2T">Arquitectura Distribuida</h3>
+            <p data-i18n="cloudEntCard2D">Dise&ntilde;o multi-nodo con alta disponibilidad y redundancia geogr&aacute;fica para garantizar continuidad de negocio en todo momento.</p>
+          </div>
+        </div>
+        <div style="text-align:center">
+          <span class="btn-primary" style="cursor:pointer" onclick="navigate('cloud-dedicado')" data-i18n="cloudMoreBtn">M&aacute;s Informaci&oacute;n Enterprise</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- IaaS -->
+    <section style="padding:0 28px 72px;background:var(--surface2)">
+      <div class="section-wrap" style="padding-top:56px">
+        <div style="text-align:center;margin-bottom:40px">
+          <div class="eyebrow" data-i18n="cloudIaaS">IaaS</div>
+          <h2 class="display-title" data-i18n="cloudIaaSTitle">Infraestructura como Servicio</h2>
+          <p style="color:var(--text-2);font-size:0.95rem;max-width:560px;margin:0 auto" data-i18n="cloudIaaSDesc">Recursos de infraestructura virtualizados bajo demanda: c&oacute;mputo, almacenamiento y redes escalables.</p>
+        </div>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1"/>
+                <rect x="2" y="10" width="20" height="5" rx="1"/>
+                <rect x="2" y="17" width="20" height="5" rx="1"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudIaaSCard1T">M&aacute;quinas Virtuales</h3>
+            <p data-i18n="cloudIaaSCard1D">Instancias de c&oacute;mputo configurables con diferentes capacidades de CPU, RAM y almacenamiento adaptadas a cada carga de trabajo.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudIaaSCard2T">Almacenamiento Cloud</h3>
+            <p data-i18n="cloudIaaSCard2D">Almacenamiento de objetos, bloques y ficheros con alta durabilidad, redundancia y acceso global de baja latencia.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudIaaSCard3T">Redes Virtuales</h3>
+            <p data-i18n="cloudIaaSCard3D">VPCs privadas, balanceadores de carga, VPN y conectividad dedicada para arquitecturas seguras y de alto rendimiento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PaaS -->
+    <section style="padding:56px 28px 72px">
+      <div class="section-wrap">
+        <div style="text-align:center;margin-bottom:40px">
+          <div class="eyebrow" data-i18n="cloudPaaS">PaaS</div>
+          <h2 class="display-title" data-i18n="cloudPaaSTitle">Plataforma como Servicio</h2>
+          <p style="color:var(--text-2);font-size:0.95rem;max-width:560px;margin:0 auto" data-i18n="cloudPaaSDesc">Entornos gestionados para desplegar y escalar aplicaciones sin preocuparte por la infraestructura subyacente.</p>
+        </div>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPaaSCard1T">Plataforma de Aplicaciones</h3>
+            <p data-i18n="cloudPaaSCard1D">Despliega y gestiona aplicaciones web y APIs con escalado autom&aacute;tico, CI/CD integrado y monitorizaci&oacute;n en tiempo real.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPaaSCard2T">Bases de Datos Gestionadas</h3>
+            <p data-i18n="cloudPaaSCard2D">MySQL, PostgreSQL, MongoDB y Redis completamente gestionados con backups autom&aacute;ticos, alta disponibilidad y escalado sencillo.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1"/>
+                <rect x="2" y="10" width="20" height="5" rx="1"/>
+                <line x1="2" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPaaSCard3T">Orquestaci&oacute;n de Contenedores</h3>
+            <p data-i18n="cloudPaaSCard3D">Kubernetes gestionado para despliegue, escalado y operaci&oacute;n de aplicaciones en contenedores con total control y visibilidad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SaaS -->
+    <section style="padding:0 28px 72px;background:var(--surface2)">
+      <div class="section-wrap" style="padding-top:56px">
+        <div style="text-align:center;margin-bottom:40px">
+          <div class="eyebrow" data-i18n="cloudSaaS">SaaS</div>
+          <h2 class="display-title" data-i18n="cloudSaaSTitle">Software como Servicio</h2>
+          <p style="color:var(--text-2);font-size:0.95rem;max-width:560px;margin:0 auto" data-i18n="cloudSaaSDesc">Aplicaciones empresariales listas para usar, alojadas en nuestra infraestructura soberana y segura.</p>
+        </div>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudSaaSCard1T">Correo Empresarial</h3>
+            <p data-i18n="cloudSaaSCard1D">Suite de correo y colaboraci&oacute;n cifrada de extremo a extremo, alojada en Europa con total cumplimiento del RGPD.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudSaaSCard2T">Anal&iacute;tica y Business Intelligence</h3>
+            <p data-i18n="cloudSaaSCard2D">Dashboards interactivos y an&aacute;lisis avanzado de datos empresariales con visualizaci&oacute;n en tiempo real y reportes automatizados.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudSaaSCard3T">Seguridad Gestionada</h3>
+            <p data-i18n="cloudSaaSCard3D">Protecci&oacute;n integral con firewall, detecci&oacute;n de intrusiones, an&aacute;lisis de vulnerabilidades y respuesta a incidentes 24/7.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-primary" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="contactExpertBtn">Contactar con un experto</span>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+
+
+  
+  <div class="page" id="page-cloud-privada">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-link" onclick="navigate('cloud')" data-i18n="bcCloudLabel">Cloud Soberana</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-current" data-i18n="bcCloudPrivada">Nube Privada Empresarial</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="cloudPrivTitle">Nube Privada Empresarial</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="cloudPrivDesc">Infraestructura de nube dedicada y segura, meticulosamente dise&ntilde;ada para satisfacer las necesidades m&aacute;s cr&iacute;ticas de su empresa con el m&aacute;ximo rendimiento y confidencialidad.</p>
+    </div>
+
+    <section style="padding:0 28px 72px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPriv1T">Recursos Dedicados</h3>
+            <p data-i18n="cloudPriv1D">Recursos inform&aacute;ticos exclusivos adaptados precisamente a los requisitos de su empresa, sin compartir recursos.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPriv2T">Seguridad de Nivel Empresarial</h3>
+            <p data-i18n="cloudPriv2D">Enfoque de seguridad multicapa avanzado para proteger sus datos m&aacute;s confidenciales y aplicaciones de misi&oacute;n cr&iacute;tica.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudPriv3T">Soporte T&eacute;cnico Especializado</h3>
+            <p data-i18n="cloudPriv3D">Equipo de expertos disponible 24/7 para garantizar un rendimiento &oacute;ptimo y un funcionamiento ininterrumpido de su infraestructura cr&iacute;tica.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-primary" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="consultBtn">Solicitar Consulta</span>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+
+
+  
+  <div class="page" id="page-cloud-dedicado">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('home')" data-i18n="bcInicio">Inicio</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-link" onclick="navigate('cloud')" data-i18n="bcCloudLabel">Cloud Soberana</span>
+      <span class="bc-sep">/</span>
+      <span class="bc-current" data-i18n="bcCloudDed">Cloud Dedicado y Distribuido</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="cloudDedTitle">Cloud Dedicado y Distribuido</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="cloudDedDesc">Infraestructura cloud empresarial con m&aacute;ximo rendimiento y control</p>
+    </div>
+
+    <section style="padding:0 28px 56px">
+      <div class="section-wrap">
+        <div class="card-grid cols-2" style="max-width:1000px;margin:0 auto">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudDed1T">Cloud Dedicado</h3>
+            <p data-i18n="cloudDed1D">Recursos exclusivos y dedicados para su empresa, garantizando el m&aacute;ximo rendimiento y control sobre su infraestructura cloud. Con hardware dedicado y aislamiento completo para m&aacute;xima seguridad.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1"/>
+                <rect x="2" y="10" width="20" height="5" rx="1"/>
+                <line x1="2" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudDed2T">Cloud Distribuido</h3>
+            <p data-i18n="cloudDed2D">Arquitectura distribuida en m&uacute;ltiples centros de datos, ofreciendo alta disponibilidad y redundancia geogr&aacute;fica para sus aplicaciones cr&iacute;ticas.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudDed3T">Seguridad Avanzada</h3>
+            <p data-i18n="cloudDed3D">Protecci&oacute;n integral con firewalls dedicados, cifrado de datos, y monitorizaci&oacute;n 24/7 de la seguridad de su infraestructura cloud.</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 data-i18n="cloudDed4T">Almacenamiento Enterprise</h3>
+            <p data-i18n="cloudDed4D">Soluciones de almacenamiento empresarial con discos SSD en RAID y backups automatizados para garantizar la integridad de sus datos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding:56px 28px 80px;background:var(--surface2);text-align:center">
+      <div class="section-wrap">
+        <h2 class="display-title" style="margin-bottom:16px" data-i18n="cloudDedSolTitle">Descubre Nuestras Soluciones Cloud</h2>
+        <p style="color:var(--text-2);font-size:0.95rem;max-width:500px;margin:0 auto 36px" data-i18n="cloudDedSolDesc">Estamos listos para ayudarte a llevar tu infraestructura tecnol&oacute;gica al siguiente nivel. Contacta con nuestro equipo de ventas o descarga nuestro brochure para m&aacute;s informaci&oacute;n.</p>
+        <div class="hero-btns">
+          <span class="btn-primary" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px" onclick="navigate('contacto')" data-i18n="contactSalesBtn">
+            Contactar Ventas
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+          <span class="btn-outline" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px" data-i18n="downloadBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Descargar Brochure
+          </span>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+
+
+  
+  <div class="page" id="page-infraestructura">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcInfra">Infraestructura TI</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="infraTitle">Infraestructura TI</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="infraDesc">Soluciones completas de servidores, redes y almacenamiento para empresas que exigen máximo rendimiento</p>
+    </div>
+
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+
+          <!-- Servidor -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="5" rx="1"/>
+                <rect x="2" y="10" width="20" height="5" rx="1"/>
+                <rect x="2" y="17" width="20" height="5" rx="1"/>
+                <line x1="6" y1="5.5" x2="6.01" y2="5.5"/>
+                <line x1="6" y1="12.5" x2="6.01" y2="12.5"/>
+                <line x1="6" y1="19.5" x2="6.01" y2="19.5"/>
+              </svg>
+            </div>
+            <h3 data-i18n="infraSrvT">Servidores</h3>
+            <p data-i18n="infraSrvD">Infraestructura de servidores de alto rendimiento con redundancia total y soporte 24/7 para su negocio.</p>
+          </div>
+
+          <!-- Red -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="9" y="2" width="6" height="6" rx="1"/>
+                <rect x="1" y="16" width="6" height="6" rx="1"/>
+                <rect x="17" y="16" width="6" height="6" rx="1"/>
+                <path d="M12 8v4M4 16v-2a8 8 0 0116 0v2"/>
+              </svg>
+            </div>
+            <h3 data-i18n="infraNetT">Red</h3>
+            <p data-i18n="infraNetD">Redes empresariales seguras y escalables diseñadas para garantizar conectividad continua sin interrupciones.</p>
+          </div>
+
+          <!-- Almacenamiento -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3 data-i18n="infraStoT">Almacenamiento</h3>
+            <p data-i18n="infraStoD">Soluciones de almacenamiento escalables con copias de seguridad automáticas y recuperación ante desastres.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="infraCta">Solicitar Información</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+ 
+  <div class="page" id="page-seguridad">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcSeg">Soluciones de Seguridad</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="segTitle">Soluciones de Seguridad</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="segDesc">Soluciones integrales de seguridad para proteger su negocio</p>
+    </div>
+
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 data-i18n="seg1T">Protección de Amenazas</h3>
+            <p data-i18n="seg1D">Sistemas avanzados de detección y prevención de amenazas profesionales.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2"/>
+                <path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+            </div>
+            <h3 data-i18n="seg2T">Control de Acceso</h3>
+            <p data-i18n="seg2D">Gestión segura de acceso y soluciones de autenticación multicapa.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="seg3T">Protección de Datos</h3>
+            <p data-i18n="seg3D">Cifrado integral de datos y soluciones de respaldo seguras.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="segLearn">Saber más</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  
+  <div class="page" id="page-soporte">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcSop">Soporte Técnico</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="sopTitle">Servicios de Soporte Técnico</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="sopDesc">Nuestro equipo de expertos está disponible 24/7 para brindar soporte técnico de calidad para todas sus necesidades TI</p>
+    </div>
+
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sop1T">Disponibilidad 24/7</h3>
+            <p data-i18n="sop1D">Nuestro equipo de soporte técnico está disponible las 24 horas del día para resolver cualquier problema que pueda surgir con sus sistemas.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sop2T">Equipo Especializado</h3>
+            <p data-i18n="sop2D">Nuestros ingenieros de soporte son profesionales altamente capacitados con amplia experiencia en infraestructura TI y gestión de sistemas.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 18v-6a9 9 0 0118 0v6"/>
+                <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="sop3T">Múltiples Canales de Soporte</h3>
+            <p data-i18n="sop3D">Obtenga asistencia por teléfono, correo electrónico, chat o nuestro sistema de tickets lo que mejor se adapte a su situación.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="sopCta">Contactar Soporte</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+  <div class="page" id="page-telecomunicaciones">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcTel">Telecomunicaciones</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="telTitle">Telecomunicaciones</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="telDesc">Infraestructura y servicios de telecomunicaciones de nivel empresarial</p>
+    </div>
+
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 12h3"/>
+                <path d="M19 12h3"/>
+                <path d="M12 2v3"/>
+                <path d="M12 19v3"/>
+                <path d="M4.93 4.93l2.12 2.12"/>
+                <path d="M16.95 16.95l2.12 2.12"/>
+                <path d="M4.93 19.07l2.12-2.12"/>
+                <path d="M16.95 7.05l2.12-2.12"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="4" y1="6" x2="4" y2="6"/>
+              </svg>
+            </div>
+            <h3 data-i18n="tel1T">Cobertura de Red</h3>
+            <p data-i18n="tel1D">Extensa cobertura de red con alta fiabilidad para su negocio.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="9" y="2" width="6" height="6" rx="1"/>
+                <rect x="1" y="16" width="6" height="6" rx="1"/>
+                <rect x="17" y="16" width="6" height="6" rx="1"/>
+                <path d="M12 8v4M4 16v-2a8 8 0 0116 0v2"/>
+              </svg>
+            </div>
+            <h3 data-i18n="tel2T">Infraestructura</h3>
+            <p data-i18n="tel2D">Soluciones modernas de infraestructura de telecomunicaciones corporativas.</p>
+          </div>
+
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="tel3T">Conectividad Global</h3>
+            <p data-i18n="tel3D">Soluciones de conectividad mundial para empresas que buscan expansión.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="correoBtnStart">Comenzar</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  
+  <div class="page" id="page-correo">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcCorreo">Correo Electrónico</span>
+    </div>
+
+    <div class="page-hero">
+      <div class="eyebrow" data-i18n="correoEyebrow">Correo Electrónico</div>
+      <h1 class="display-title" data-i18n="correoTitle">Soluciones de Correo Electrónico Profesional</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="correoDesc">Servicios de correo electrónico seguros y confiables para su negocio</p>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing-wrap">
+      <div class="pricing-grid">
+
+        <!-- Email Pro -->
+        <div class="price-card">
+          <div class="price-plan-name" data-i18n="correo1Name">Email Pro</div>
+          <div class="price-amount">
+            <span class="price-cur">$</span>
+            <span class="price-num">4.99</span>
+            <span class="price-period" data-i18n="correoPerPeriod">/mes por usuario</span>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="correoProF1">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              10GB de Almacenamiento
+            </li>
+            <li data-i18n="correoProF2">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dominio personalizado
+            </li>
+            <li data-i18n="correoProF3">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Interfaz web
+            </li>
+            <li data-i18n="correoProF4">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Acceso móvil
+            </li>
+          </ul>
+          <span class="btn-plan btn-plan-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="correoBtnStart">Comenzar</span>
+        </div>
+
+        <!-- Email Business (featured) -->
+        <div class="price-card featured">
+          <div class="badge-popular" data-i18n="planPopular">Más Popular</div>
+          <div class="price-plan-name" data-i18n="correo2Name">Email Business</div>
+          <div class="price-amount">
+            <span class="price-cur">$</span>
+            <span class="price-num">9.99</span>
+            <span class="price-period" data-i18n="correoPerPeriod">/mes por usuario</span>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="correoBizF1">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              50GB de Almacenamiento
+            </li>
+            <li data-i18n="correoBizF2">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dominio personalizado
+            </li>
+            <li data-i18n="correoBizF3">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Filtrado avanzado de spam
+            </li>
+            <li data-i18n="correoBizF4">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Calendarios compartidos
+            </li>
+            <li data-i18n="correoBizF5">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Acceso móvil
+            </li>
+          </ul>
+          <span class="btn-plan btn-plan-white" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="correoBtnStart">Comenzar</span>
+        </div>
+
+        <!-- Email Enterprise -->
+        <div class="price-card">
+          <div class="price-plan-name" data-i18n="correo3Name">Email Enterprise</div>
+          <div class="price-amount">
+            <span class="price-cur">$</span>
+            <span class="price-num">14.99</span>
+            <span class="price-period" data-i18n="correoPerPeriod">/mes por usuario</span>
+          </div>
+          <ul class="price-features">
+            <li data-i18n="correoEntF1">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              100GB de Almacenamiento
+            </li>
+            <li data-i18n="correoEntF2">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dominio personalizado
+            </li>
+            <li data-i18n="correoEntF3">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Seguridad avanzada
+            </li>
+            <li data-i18n="correoEntF4">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Archivado de correo electrónico
+            </li>
+            <li data-i18n="correoEntF5">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Soporte prioritario
+            </li>
+            <li data-i18n="correoEntF6">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Herramientas de colaboración en equipo
+            </li>
+          </ul>
+          <span class="btn-plan btn-plan-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="correoBtnStart">Comenzar</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Por qué elegir -->
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <h2 style="text-align:center;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:32px" data-i18n="correoWhyTitle">
+          Por qué elegir nuestro servicio de correo electrónico
+        </h2>
+        <div class="card-grid cols-3">
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M2 7l10 7 10-7"/>
+              </svg>
+            </div>
+            <h3 data-i18n="correoWhy1T">Imagen Profesional</h3>
+            <p data-i18n="correoProF2">Direcciones de correo electrónico de dominio personalizado para una apariencia de marca profesional</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="correoWhy2T">Seguridad Mejorada</h3>
+            <p data-i18n="correoEntF3">Protección avanzada contra spam, phishing y malware</p>
+          </div>
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="correoWhy3T">Amplio Almacenamiento</h3>
+            <p data-i18n="correoEntF1">Gran capacidad de buzón para todas sus comunicaciones importantes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+ 
+  <div class="page" id="page-moviles">
+    <div class="breadcrumb">
+      <span class="bc-link" onclick="navigate('productos')" data-i18n="bcProductos">Productos</span>
+      <span class="bc-sep"> / </span>
+      <span class="bc-current" data-i18n="bcMov">Líneas Móviles</span>
+    </div>
+
+    <div class="page-hero">
+      <h1 class="display-title" data-i18n="movTitle">Líneas Móviles</h1>
+      <p class="lead" style="margin:0 auto" data-i18n="movDesc">Planes móviles corporativos y soluciones de gestión de dispositivos.</p>
+    </div>
+
+    <section style="padding:0 28px 96px">
+      <div class="section-wrap">
+        <div class="card-grid cols-3">
+
+          <!-- Planes Móviles -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="mov1T">Planes Corporativos</h3>
+            <p data-i18n="mov1D">Tarifas móviles adaptadas a equipos de trabajo con llamadas ilimitadas y datos compartidos.</p>
+          </div>
+
+          <!-- Seguridad Móvil -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="mov2T">Seguridad Móvil</h3>
+            <p data-i18n="mov2D">Protección de dispositivos, control de acceso y gestión remota para toda la flota corporativa.</p>
+          </div>
+
+          <!-- Gestión de Dispositivos -->
+          <div class="g-card animate">
+            <div class="g-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.07 4.93a10 10 0 010 14.14"/>
+                <path d="M4.93 4.93a10 10 0 000 14.14"/>
+                <path d="M15.54 8.46a5 5 0 010 7.07"/>
+                <path d="M8.46 8.46a5 5 0 000 7.07"/>
+              </svg>
+            </div>
+            <h3 data-i18n="mov3T">Gestión de Dispositivos</h3>
+            <p data-i18n="mov3D">Control centralizado de todos los terminales de su empresa desde un único panel de administración.</p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <span class="btn-outline" style="cursor:pointer" onclick="navigate('contacto')" data-i18n="movCta">Solicitar Oferta</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <span style="font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--footer-h);letter-spacing:-0.01em;display:inline-block;margin-bottom:14px">Global Cloud Group</span>
+        <p class="footer-tagline" data-i18n="footerTagline">Soluciones de seguridad e infraestructura IT para empresas que exigen rendimiento, fiabilidad y soporte real.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footerSolTitle">Solutions</h5>
+        <ul>
+          <li><a href="#" onclick="navigate('cloud');return false" data-i18n="navCloud">Cloud Soberana</a></li>
+          <li><a href="#" onclick="navigate('hosting');return false" data-i18n="navHosting">Hosting Web</a></li>
+          <li><a href="#" onclick="navigate('bare-metal');return false" data-i18n="navBareMetal">Servidores Bare Metal</a></li>
+          <li><a href="#" onclick="navigate('cloud-privada');return false" data-i18n="dropCloud2">Cloud Privada</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footerCompTitle">Compañía</h5>
+        <ul>
+          <li><a href="#" onclick="navigate('home');return false" data-i18n="footerComp1">El Grupo</a></li>
+          <li><a href="#" onclick="navigate('partners');return false" data-i18n="navPartners">Partners</a></li>
+          <li><a href="#" onclick="navigate('productos');return false" data-i18n="navProductos">Productos</a></li>
+          <li><a href="#" onclick="navigate('digital');return false" data-i18n="navDigital">Ciberseguridad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-i18n="footerContTitle">Contacto</h5>
+        <div class="footer-contact-list">
+          <div class="footer-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span data-i18n="footerAddr">Calle las Palomas n 50 Urb EL Coto<br />Mijas Costa, Málaga, Spain</span>
+          </div>
+          <div class="footer-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            <span>00 34 617 326 622</span>
+          </div>
+          <div class="footer-ci">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span><a href="mailto:mail@cloudglobal.es" style="color:inherit;text-decoration:none">mail@cloudglobal.es</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footerRights">&copy; 2026 Global Cloud Group. Todos los derechos reservados.</span>
+      <span data-i18n="footerLoc">Málaga, España</span>
+    </div>
+  </footer>
+
+  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <a href="https://wa.me/34617326622" class="whatsapp-btn" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+/* ═══════════════════════════════════
+   PALETA DE COLORES — GlobalCloudGroup
+   ═══════════════════════════════════
+   Este archivo contiene todas las
+   variables de color y tipografía.
+   Para cambiar el diseño visual,
+   edita solo este archivo.
+═══════════════════════════════════ */
+
+/* ── Tokens base (fuentes, radios, transición) ── */
+:root {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+  --radius: 3px;
+  --radius-lg: 8px;
+  --ease: 0.2s ease;
+}
+
+/* ── Modo oscuro ── */
+[data-theme="dark"] {
+  --bg: #08101f;
+  --surface: #0f1928;
+  --surface2: #162035;
+  --border: #1c2e46;
+  --accent: #1a5fd4;
+  --accent-h: #1450b8;
+  --text: #ffffff;
+  --text-2: #e2e8f0;
+  --text-3: #94a3b8;
+  --nav-bg: #ffffff;
+  --nav-text: #0d1520;
+  --nav-text2: #4a5a70;
+  --nav-border: #e4eaf2;
+  --nav-hover: #f4f7fc;
+  --nav-accent: #1a5fd4;
+  --footer-bg: #ffffff;
+  --footer-text: #5a7090;
+  --footer-h: #1a2a40;
+}
+
+/* ── Modo claro ── */
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --surface2: #edf1f8;
+  --border: #d8e2ef;
+  --accent: #1a5fd4;
+  --accent-h: #1450b8;
+  --text: #0d1520;
+  --text-2: #4a5a70;
+  --text-3: #8a9db8;
+  --nav-bg: #ffffff;
+  --nav-text: #0d1520;
+  --nav-text2: #4a5a70;
+  --nav-border: #e4eaf2;
+  --nav-hover: #f4f7fc;
+  --nav-accent: #1a5fd4;
+  --footer-bg: #ffffff;
+  --footer-text: #5a7090;
+  --footer-h: #1a2a40;
+}

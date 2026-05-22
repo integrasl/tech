@@ -1,0 +1,704 @@
+[
+  {
+    "id": "TC001",
+    "title": "Accept the cookie consent banner",
+    "description": "This verifies a first-time visitor can acknowledge the cookie banner and continue browsing without it remaining visible.",
+    "category": "Cookie Consent Handling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the cookie consent banner is visible"
+      },
+      {
+        "type": "action",
+        "description": "Accept all cookies"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the cookie consent banner is no longer visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Accept cookies and explore the homepage sections",
+    "description": "This test verifies that a first-time visitor can accept the cookie banner and navigate through the main homepage sections from the primary navigation.",
+    "category": "Homepage discovery and persistent UI controls",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the solutions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the services section"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the industries section"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the about us section"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the partners section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the solutions, services, industries, about us, and partners sections are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Switch the site between supported languages",
+    "description": "This verifies a visitor can switch the homepage content between Spanish, English, and French and return to Spanish successfully.",
+    "category": "Multilingual Site Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click the English language switch"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site content is displayed in English"
+      },
+      {
+        "type": "action",
+        "description": "Click the French language switch"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site content is displayed in French"
+      },
+      {
+        "type": "action",
+        "description": "Click the Spanish language switch"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site content is displayed in Spanish"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Switch the site language across the homepage",
+    "description": "This test verifies that a visitor can switch between the supported homepage languages and see the site content update accordingly.",
+    "category": "Homepage discovery and persistent UI controls",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Switch the site language to English"
+      },
+      {
+        "type": "action",
+        "description": "Switch the site language to French"
+      },
+      {
+        "type": "action",
+        "description": "Switch the site language back to Spanish"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage content updates for the selected languages and returns to Spanish"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Submit the contact inquiry form successfully",
+    "description": "This test verifies that a visitor can complete the contact form, pass the on-page security verification, and receive a success confirmation.",
+    "category": "Contact Inquiry Form",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#contacto"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with a valid name"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the corporate email field with a valid corporate email address"
+      },
+      {
+        "type": "action",
+        "description": "Complete the cloud security verification"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a success confirmation is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Toggle the site theme on the homepage",
+    "description": "This verifies a visitor can switch between dark and light appearance modes from the homepage.",
+    "category": "Theme Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the theme setting"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page is displayed in dark mode"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the theme setting again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page is displayed in light mode"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Toggle theme across the homepage",
+    "description": "This test verifies that a visitor can switch between light and dark theme modes and that the homepage remains visually consistent.",
+    "category": "Homepage discovery and persistent UI controls",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the site theme to dark mode"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the solutions section"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the services section"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the footer area"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the site theme back to light mode"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site content remains visible and consistent in both theme modes"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Handle the cookie banner once and keep browsing the homepage",
+    "description": "This verifies the consent banner can be dismissed and the visitor can still use the homepage navigation afterward.",
+    "category": "Cookie Consent Handling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Accept all cookies"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the solutions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the services section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the cookie consent banner is no longer visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage navigation sections are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Switch the site language and browse key sections",
+    "description": "This verifies a multilingual visitor can change the homepage language and still navigate to the main informational sections.",
+    "category": "Multilingual Site Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click the English language switch"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the solutions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the services section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the industries section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the about us section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the partners section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the key informational sections are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site remains in English"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Browse solutions cards from the homepage",
+    "description": "This test verifies that a visitor can open the solutions section and review the available solution cards.",
+    "category": "Core marketing and conversion flows",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the solutions section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify solution cards are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Keep theme styling consistent while browsing major sections",
+    "description": "This verifies the selected theme remains visually consistent when moving across the main homepage sections.",
+    "category": "Theme Switching",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the theme setting"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the solutions section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the services section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the industries section"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to the partners section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dark theme styling is applied across the site sections"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the site sections remain readable and consistent"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Expand service details in the services section",
+    "description": "This test verifies that a visitor can access the services section and reveal detailed service information through the accordion controls.",
+    "category": "Core marketing and conversion flows",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the services section"
+      },
+      {
+        "type": "action",
+        "description": "Expand a service accordion section"
+      },
+      {
+        "type": "action",
+        "description": "Expand another service accordion section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify service details are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Open the mock portal login page",
+    "description": "This test verifies that a visitor can reach the mock customer portal login entry point from the site navigation.",
+    "category": "Mock Customer Portal Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to open the login page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the login form is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Review industry experience cards",
+    "description": "This test verifies that a visitor can view the industries section and inspect the company’s sector experience cards.",
+    "category": "Core marketing and conversion flows",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the industries section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify industry experience cards are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Submit the mock portal login form",
+    "description": "This test verifies that a visitor can enter corporate credentials and submit the mock portal login form without the page breaking.",
+    "category": "Mock Customer Portal Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the corporate email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page remains in a usable state after submission"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Review company history and values",
+    "description": "This test verifies that a visitor can navigate to the about us section and see the company timeline and core values content.",
+    "category": "Core marketing and conversion flows",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the about us section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the company timeline and core values are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Review partner logos and channel strip",
+    "description": "This test verifies that a visitor can open the partners section and view the trusted partner and integrator branding.",
+    "category": "Core marketing and conversion flows",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the partners section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify partner logos and the channel integrator strip are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "Handle repeated homepage controls without breaking the page",
+    "description": "This verifies rapid repeated use of the language and theme controls leaves the homepage usable and consistent.",
+    "category": "Multilingual Site Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click the English language switch"
+      },
+      {
+        "type": "action",
+        "description": "Click the French language switch"
+      },
+      {
+        "type": "action",
+        "description": "Click the Spanish language switch"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the theme setting"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the theme setting again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage content is displayed normally"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the homepage theme is displayed normally"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "Reach the mock registration entry point",
+    "description": "This test verifies that a visitor can open the mock account registration page from the site navigation and view its entry state.",
+    "category": "Mock Customer Portal Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to open the registration page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the registration entry point is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC020",
+    "title": "Show validation when contact form is incomplete",
+    "description": "This test verifies that the contact form prevents submission when required information is missing and shows validation feedback.",
+    "category": "Contact Inquiry Form",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#contacto"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form without entering required details"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation feedback is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC021",
+    "title": "Show validation when contact verification is not completed",
+    "description": "This test verifies that the contact form requires the on-page security verification before submission is accepted.",
+    "category": "Contact Inquiry Form",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#contacto"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the name field with a valid name"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the corporate email field with a valid corporate email address"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form without completing the cloud security verification"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error is visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC022",
+    "title": "Handle repeated language and theme controls",
+    "description": "This test verifies that rapidly changing language and theme controls does not break the homepage navigation or section visibility.",
+    "category": "Homepage discovery and persistent UI controls",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /#inicio"
+      },
+      {
+        "type": "action",
+        "description": "Click to accept the cookie banner"
+      },
+      {
+        "type": "action",
+        "description": "Switch the site language to English"
+      },
+      {
+        "type": "action",
+        "description": "Switch the site language to Spanish"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the site theme to dark mode"
+      },
+      {
+        "type": "action",
+        "description": "Toggle the site theme back to light mode"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to view the contact section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the contact section is displayed and the homepage controls remain usable"
+      }
+    ],
+    "priority": "Low"
+  }
+]

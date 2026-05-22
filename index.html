@@ -13,42 +13,35 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;caret-color:transparent}
     input,textarea,[contenteditable="true"]{caret-color:auto}
 
-    :root {
-      --ink:#050f1e;--ink2:#1a2e4a;--blue:#0a5fd6;--blue2:#0847a8;
-      --sky:#e8f2ff;--sky2:#d0e5ff;--white:#ffffff;--gray:#6b7e96;
-      --gray2:#f4f7fb;--border:rgba(10,95,214,0.15);--accent:#00c8a0;
-      --font-head:'Plus Jakarta Sans',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
-      --radius:12px;--radius-lg:20px;
-      --shadow:0 2px 24px rgba(5,15,30,0.08);--shadow-lg:0 8px 48px rgba(5,15,30,0.14);
-      /* Hero theme tokens */
-      --hero-bg:#ffffff;
-      --hero-text:#050f1e;
-      --hero-sub:rgba(30,50,80,0.6);
-      --hero-badge-bg:#e8f2ff;
-      --hero-badge-border:rgba(10,95,214,0.3);
-      --hero-badge-color:#0a5fd6;
-      --hero-metric-border:rgba(10,95,214,0.12);
-      --hero-metric-label:#6b7e96;
-      --hero-grid-color:rgba(10,95,214,0.07);
-    }
+:root {
+  --ink:#050f1e;--ink2:#1a2e4a;--blue:#2563eb;--blue2:#1e40af;
+  --sky:#f8fafc;--sky2:#e2e8f0;--white:#ffffff;--gray:#64748b;
+  --gray2:#f1f5f9;--border:rgba(37,99,235,0.1);--accent:#059669;
+  --font-head:'Plus Jakarta Sans',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
+  --radius:8px;--radius-lg:12px;
+  --shadow:0 1px 3px rgba(0,0,0,0.1);--shadow-lg:0 4px 6px rgba(0,0,0,0.1);
+  --gradient-primary:linear-gradient(135deg, #2563eb 0%, #1e40af 70%);
+  --gradient-secondary:linear-gradient(135deg, #f8fafc 0%, #e2e8f0 70%);
+  --gradient-tertiary:linear-gradient(135deg, rgba(37,99,235,0.03) 0%, rgba(5,150,105,0.02) 70%);
+}
 
     /* DARK MODE */
-    body.dark {
-      --white:#131d2e;--gray2:#0d1520;
-      --border:rgba(80,140,220,0.18);--sky:rgba(10,95,214,0.14);--sky2:rgba(10,95,214,0.24);
-      --gray:#8fa3c0;--shadow:0 2px 24px rgba(0,0,0,0.3);--shadow-lg:0 8px 48px rgba(0,0,0,0.45);
-      background:#0d1520;color:#c8daf0;
-      /* Hero dark tokens */
-      --hero-bg:#080f1a;
-      --hero-text:#ffffff;
-      --hero-sub:rgba(255,255,255,0.62);
-      --hero-badge-bg:rgba(10,95,214,0.2);
-      --hero-badge-border:rgba(10,95,214,0.4);
-      --hero-badge-color:#7ab8ff;
-      --hero-metric-border:rgba(255,255,255,0.1);
-      --hero-metric-label:rgba(255,255,255,0.5);
-      --hero-grid-color:rgba(255,255,255,0.5);
-    }
+body.dark {
+  --white:#0f172a;--gray2:#020617;
+  --border:rgba(37,99,235,0.2);--sky:rgba(37,99,235,0.08);--sky2:rgba(37,99,235,0.12);
+  --gray:#94a3b8;--shadow:0 1px 3px rgba(0,0,0,0.3);--shadow-lg:0 4px 6px rgba(0,0,0,0.4);
+  background:#020617;color:#e2e8f0;
+  /* Hero dark tokens */
+  --hero-bg:#020617;
+  --hero-text:#f1f5f9;
+  --hero-sub:rgba(255,255,255,0.6);
+  --hero-badge-bg:rgba(37,99,235,0.15);
+  --hero-badge-border:rgba(37,99,235,0.3);
+  --hero-badge-color:#60a5fa;
+  --hero-metric-border:rgba(255,255,255,0.1);
+  --hero-metric-label:rgba(255,255,255,0.4);
+  --hero-grid-color:rgba(255,255,255,0.08);
+}
     body.dark nav{background:rgba(10,15,25,0.97);border-bottom-color:rgba(80,140,220,0.14)}
     body.dark .nav-logo{color:#c8daf0}
     body.dark .nav-links a{color:#a8c0e0}
@@ -84,22 +77,81 @@
     body.dark .login-box .btn-outline{background:rgba(122,184,255,0.1)!important;color:#7ab8ff!important;border-color:#7ab8ff!important}
 
 
-    /* NAV CONTROLS */
-    .nav-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
-    .lang-switch{display:flex;align-items:center;background:var(--gray2);border-radius:8px;padding:3px;gap:2px;border:1px solid var(--border)}
-    .lang-btn{background:transparent;border:none;font-size:11px;font-weight:700;color:var(--gray);
-      padding:4px 9px;border-radius:5px;cursor:pointer;font-family:var(--font-body);
-      transition:background 0.15s,color 0.15s;letter-spacing:0.8px}
-    .lang-btn.active{background:var(--blue);color:#fff;box-shadow:0 1px 4px rgba(10,95,214,0.25)}
-    .lang-btn:hover:not(.active){background:var(--sky);color:var(--blue)}
-    .theme-toggle{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);
-      background:var(--gray2);cursor:pointer;display:flex;align-items:center;justify-content:center;
-      transition:background 0.18s,border-color 0.18s;color:var(--gray);flex-shrink:0}
-    .theme-toggle:hover{background:var(--sky);border-color:var(--blue);color:var(--blue)}
-    body.dark .lang-switch{background:rgba(255,255,255,0.06);border-color:rgba(80,140,220,0.18)}
-    body.dark .lang-btn:hover:not(.active){background:var(--sky);color:#7ab8ff}
-    body.dark .theme-toggle{background:rgba(255,255,255,0.06);border-color:rgba(80,140,220,0.2);color:#8fa3c0}
-    body.dark .theme-toggle:hover{background:var(--sky);border-color:var(--blue);color:#7ab8ff}
+/* NAV CONTROLS */
+.nav-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-switch{display:flex;align-items:center;background:var(--gray2);border-radius:8px;padding:3px;gap:2px;border:1px solid var(--border)}
+.lang-btn{background:transparent;border:none;font-size:11px;font-weight:700;color:var(--gray);
+  padding:4px 9px;border-radius:5px;cursor:pointer;font-family:var(--font-body);
+  position:relative;overflow:hidden;letter-spacing:0.8px}
+.lang-btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+}
+.lang-btn:hover::before{
+  left:100%;
+}
+.lang-btn.active{background:var(--sky);color:var(--blue);font-weight:700}
+.lang-btn:hover:not(.active){
+  background:var(--gradient-secondary);
+  color:var(--blue);
+}
+.theme-toggle{
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--gray2);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gray);
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.theme-toggle::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+}
+.theme-toggle:hover::before{
+  left:100%;
+}
+.theme-toggle:hover{
+  background:var(--gradient-secondary);
+  border-color:var(--blue);
+  color:var(--blue);
+}
+body.dark .lang-switch{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(80,140,220,0.18);
+}
+body.dark .lang-btn:hover:not(.active){
+  background:rgba(10,95,214,0.1);
+  color:#7ab8ff;
+  transform:translateY(-1px);
+}
+body.dark .theme-toggle{
+  background:rgba(255,255,255,0.06);
+  border-color:rgba(80,140,220,0.2);
+  color:#8fa3c0;
+}
+body.dark .theme-toggle:hover{
+  background:rgba(10,95,214,0.15);
+  border-color:var(--blue);
+  color:#7ab8ff;
+  transform:translateY(-1px);
+}
 
     html,body{height:100%}
     body{font-family:var(--font-body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
@@ -112,16 +164,35 @@
       letter-spacing:0.5px;text-decoration:none;display:flex;align-items:center;gap:10px;cursor:pointer}
     .nav-logo-mark{width:36px;height:36px;background:var(--blue);border-radius:9px;
       display:flex;align-items:center;justify-content:center}
-    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-    .nav-links a{font-size:14px;font-weight:400;color:var(--ink2);text-decoration:none;
-      padding:7px 14px;border-radius:8px;transition:background 0.18s,color 0.18s;cursor:pointer;display:block}
-    .nav-links a:hover{background:var(--sky);color:var(--blue)}
-    .nav-links a.active{background:var(--sky);color:var(--blue);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{
+  font-size:14px;
+  font-weight:400;
+  color:var(--ink2);
+  text-decoration:none;
+  padding:7px 14px;
+  border-radius:8px;
+  position:relative;
+  overflow:hidden;
+  display:block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-links a:hover{
+  background:rgba(37,99,235,0.05);
+  color:var(--blue);
+}
+.nav-links a.active{
+  background:transparent;
+  color:#7ab8ff;
+  font-weight:500;
+}
     .nav-cta{background:var(--blue)!important;color:#ffffff!important;border-radius:8px!important;padding:8px 20px!important;font-weight:500!important}
     .nav-cta:hover{background:var(--blue2)!important}
     .nav-cta.active{background:var(--blue2)!important;color:#ffffff!important}
-    .nav-btn-secondary{font-size:13px;font-weight:600;color:var(--blue);border:1.2px solid var(--blue);padding:6px 12px;border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer;display:inline-block}
-    .nav-btn-secondary:hover{background:var(--sky);transform:translateY(-1px)}
+.nav-btn-secondary{font-size:13px;font-weight:600;color:var(--blue);border:1.2px solid var(--blue);padding:6px 12px;border-radius:8px;text-decoration:none;cursor:pointer;display:inline-block}
+.nav-btn-secondary:hover{background:var(--sky);}
     body.dark .nav-btn-secondary{color:#7ab8ff;border-color:#7ab8ff}
     body.dark .nav-btn-secondary:hover{background:rgba(10,95,214,0.15)}
     .nav-btn-dark{background:var(--ink);color:white!important;border:none}
@@ -131,7 +202,8 @@
     .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:4px 0}
 
     #app{padding-top:68px;min-height:calc(100vh - 68px)}
-    .page{animation:fadeUp 0.32s ease both}
+    .page{
+}
     @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
     .section-wrap{padding:80px 5vw}
@@ -143,47 +215,83 @@
       line-height:1.15;color:var(--ink);margin-bottom:20px}
     .section-sub{font-size:17px;color:var(--gray);max-width:580px;line-height:1.7;margin-bottom:52px}
 
-    .btn-primary{background:var(--blue);color:#ffffff;border:none;border-radius:10px;padding:13px 30px;
-      font-size:15px;font-weight:500;font-family:var(--font-body);cursor:pointer;
-      transition:background 0.18s,transform 0.15s;text-decoration:none;display:inline-block}
-    .btn-primary:hover{background:#1a6fe0;transform:translateY(-1px)}
-    .btn-outline{background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);
-      border-radius:10px;padding:13px 30px;font-size:15px;font-weight:400;font-family:var(--font-body);
-      cursor:pointer;transition:border-color 0.18s,background 0.18s,transform 0.15s;text-decoration:none;display:inline-block}
-    .btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.07);transform:translateY(-1px)}
-    .btn-ghost{background:var(--sky);color:var(--blue);border:1px solid var(--border);border-radius:10px;
-      padding:13px 30px;font-size:15px;font-weight:500;font-family:var(--font-body);cursor:pointer;
-      transition:background 0.18s;text-decoration:none;display:inline-block}
-    .btn-ghost:hover{background:var(--sky2)}
+.btn-primary{background:var(--blue);color:#ffffff;border:none;border-radius:10px;padding:13px 30px;
+  font-size:15px;font-weight:500;font-family:var(--font-body);cursor:pointer;
+  text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#2563eb;}
+.btn-outline{background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,0.25);
+  border-radius:10px;padding:13px 30px;font-size:15px;font-weight:400;font-family:var(--font-body);
+  cursor:pointer;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.07);}
+.btn-ghost{background:var(--sky);color:var(--blue);border:1px solid var(--border);border-radius:10px;
+  padding:13px 30px;font-size:15px;font-weight:500;font-family:var(--font-body);cursor:pointer;
+  text-decoration:none;display:inline-block}
+.btn-ghost:hover{background:var(--sky2);}
 
     /* HERO */
-    .hero{min-height:calc(100vh - 68px);background:var(--hero-bg);padding:80px 5vw;position:relative;overflow:hidden;display:flex;align-items:center;transition:background 0.3s}
-    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(10,95,214,0.1) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(0,200,160,0.06) 0%,transparent 60%)}
-    body.dark .hero-bg{background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(10,95,214,0.28) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(0,200,160,0.12) 0%,transparent 60%)}
-    .hero-grid{position:absolute;inset:0;opacity:0.06;background-image:linear-gradient(var(--hero-grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--hero-grid-color) 1px,transparent 1px);background-size:48px 48px}
-    .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--hero-badge-bg);border:1px solid var(--hero-badge-border);color:var(--hero-badge-color);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:32px}
-    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-    .hero-title{font-family:var(--font-head);font-size:clamp(42px,6vw,74px);font-weight:400;color:var(--hero-text);line-height:1.08;letter-spacing:-0.5px;margin-bottom:28px;max-width:800px}
-    .hero-title span{color:var(--blue)}
-    body.dark .hero-title span{color:#5b9fff}
-    .hero-sub{font-size:18px;font-weight:300;color:var(--hero-sub);max-width:560px;line-height:1.7;margin-bottom:48px}
-    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:80px}
-    /* btn-outline dentro del hero en modo claro = botón azul outline */
-    .hero .btn-outline{color:var(--blue);border-color:var(--border);background:transparent}
-    .hero .btn-outline:hover{background:var(--sky);border-color:var(--blue);transform:translateY(-1px)}
-    body.dark .hero .btn-outline{color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.25);background:transparent}
-    body.dark .hero .btn-outline:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.5)}
-    .hero-metrics{display:flex;gap:48px;flex-wrap:wrap;border-top:1px solid var(--hero-metric-border);padding-top:40px}
-    .metric-value{font-family:var(--font-body);font-size:38px;font-weight:600;color:var(--hero-text);line-height:1;letter-spacing:-1px}
-    .metric-value span{color:var(--accent)}
-    .metric-label{font-size:13px;color:var(--hero-metric-label);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.hero{min-height:calc(100vh - 68px);background:var(--hero-bg);padding:80px 5vw;position:relative;overflow:hidden;display:flex;align-items:center;transition:background 0.3s}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%)}
+body.dark .hero-bg{background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%)}
+.hero-grid{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(var(--hero-grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--hero-grid-color) 1px,transparent 1px);background-size:64px 64px}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--hero-badge-bg);border:1px solid var(--hero-badge-border);color:var(--hero-badge-color);font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;padding:8px 20px;border-radius:12px;margin-bottom:24px}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.hero-title{font-family:var(--font-head);font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--hero-text);line-height:1.2;letter-spacing:-0.3px;margin-bottom:24px;max-width:700px}
+.hero-title span{color:var(--blue);font-weight:500}
+body.dark .hero-title span{color:#60a5fa}
+.hero-sub{font-size:17px;font-weight:400;color:var(--hero-sub);max-width:540px;line-height:1.7;margin-bottom:40px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:60px}
+/* Modern button styles */
+.hero .btn-primary{
+  background:var(--blue);
+  color:#fff;
+  border:none;
+  padding:12px 28px;
+  font-size:15px;
+  font-weight:500;
+  border-radius:12px;
+  cursor:pointer;
+  display:inline-block;
+}
+.hero .btn-primary:hover{
+  background:var(--blue2);
+}
+.hero .btn-outline{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--border);
+  padding:12px 28px;
+  font-size:15px;
+  font-weight:500;
+  border-radius:12px;
+  cursor:pointer;
+  display:inline-block;
+}
+.hero .btn-outline:hover{
+  background:var(--gradient-tertiary);
+  color:var(--blue);
+}
+body.dark .hero .btn-outline{
+  background:transparent;
+  color:#a8c0e0;
+  border:1px solid rgba(168,192,224,0.35);
+}
+body.dark .hero .btn-outline:hover{
+  background:rgba(255,255,255,0.08);
+  color:var(--white);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(255,255,255,0.1);
+}
+.hero-metrics{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid var(--hero-metric-border);padding-top:32px}
+.metric-value{font-family:var(--font-body);font-size:32px;font-weight:600;color:var(--hero-text);line-height:1;letter-spacing:-0.5px}
+.metric-value span{color:var(--blue);font-weight:500}
+body.dark .metric-value span{color:#60a5fa}
+.metric-label{font-size:14px;color:var(--hero-metric-label);margin-top:6px;text-transform:uppercase;letter-spacing:0.5px;display:block}
 
     /* SOLUCIONES */
     .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .sol-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s}
-    .sol-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(10,95,214,0.3)}
+.sol-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px}
+.sol-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:rgba(37,99,235,0.2)}
     .sol-icon{width:52px;height:52px;border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
     .sol-icon svg{width:26px;height:26px;color:var(--blue)}
     .sol-card h3{font-family:var(--font-head);font-size:19px;font-weight:400;color:var(--ink);margin-bottom:10px}
@@ -192,16 +300,13 @@
 
     /* SERVICIOS */
     .srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-    .srv-module{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
-    .srv-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;background:var(--white);transition:background 0.15s;user-select:none}
-    .srv-header:hover{background:var(--sky)}
-    .srv-header-left{display:flex;align-items:center;gap:14px}
-    .srv-dot{width:9px;height:9px;border-radius:50%;background:var(--blue);flex-shrink:0}
-    .srv-header h4{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--ink)}
-    .srv-arrow{width:20px;height:20px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gray);transition:transform 0.2s,background 0.15s;flex-shrink:0;line-height:1}
-    .srv-body{padding:0 22px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s ease;border-top:0 solid var(--border)}
-    .srv-module.open .srv-body{max-height:260px;padding:16px 22px 20px;border-top-width:1px}
-    .srv-module.open .srv-arrow{transform:rotate(180deg);background:var(--blue);color:var(--blue)}
+.srv-module{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
+.srv-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;background:var(--white);user-select:none}
+.srv-header:hover{background:var(--sky)}
+.srv-arrow{width:20px;height:20px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--gray);flex-shrink:0;line-height:1}
+.srv-body{padding:0 22px;max-height:0;overflow:hidden;border-top:0 solid var(--border)}
+.srv-module.open .srv-body{max-height:260px;padding:16px 22px 20px;border-top-width:1px}
+.srv-module.open .srv-arrow{transform:rotate(180deg);background:var(--blue);color:var(--blue)}
     .srv-body p{font-size:14px;color:var(--gray);line-height:1.7}
     .srv-body ul{margin-top:10px;list-style:none}
     .srv-body ul li{font-size:13px;color:var(--ink2);padding:3px 0 3px 16px;position:relative}
@@ -213,13 +318,13 @@
     .sla-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
     .sla-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:18px}
     .sla-num{font-family:var(--font-body);font-size:26px;font-weight:600;color:#ffffff;letter-spacing:-0.5px}
-    .sla-num span{color:var(--accent)}
+    .sla-num span{color:#5b9fff}
     .sla-label{font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px}
 
     /* INDUSTRIAS */
     .ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .ind-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 22px;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;position:relative;overflow:hidden}
-    .ind-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(10,95,214,0.3)}
+.ind-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 22px;position:relative;overflow:hidden}
+.ind-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:rgba(37,99,235,0.2)}
     .ind-num{font-family:var(--font-body);font-size:36px;font-weight:300;color:var(--blue);line-height:1;margin-bottom:16px;letter-spacing:-1px}
     .ind-card h3{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
     .ind-card p{font-size:13px;color:var(--gray);line-height:1.6}
@@ -338,7 +443,7 @@
 
 <body>
   <nav id="main-nav">
-    <span class="nav-logo" onclick="navigate('inicio')">
+    <span class="nav-logo" onclick="navigate('inicio')" style="cursor:pointer">
       <div class="nav-logo-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" width="20" height="20">
           <rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/>
@@ -358,11 +463,11 @@
       <li style="margin-left:24px;"><a data-page="contacto" data-i18n="nav.contacto" onclick="navigate('contacto')" class="nav-cta">Contacto</a></li>
     </ul>
     <div class="nav-controls">
-      <div class="lang-switch">
-        <button class="lang-btn active" id="lang-es" onclick="setLang('es')">ES</button>
-        <button class="lang-btn" id="lang-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="lang-fr" onclick="setLang('fr')">FR</button>
-      </div>
+<div class="lang-switch">
+  <button class="lang-btn active" id="lang-es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" id="lang-en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" id="lang-fr" onclick="setLang('fr')">FR</button>
+</div>
       <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
         <svg id="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg id="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -392,48 +497,48 @@
     const T = {
       es: {
         nav:{inicio:'Inicio',soluciones:'Soluciones',servicios:'Servicios',industrias:'Industrias',nosotros:'Nosotros',partners:'Partners',clientes:'Acceso Clientes',contacto:'Contacto'},
-        hero:{badge:'17 años de excelencia operativa',title:'Infraestructura digital<br><span>end-to-end</span><br>para empresas críticas',sub:'Cloud soberano, ciberseguridad 360°, telecomunicaciones y servicios IT gestionados para las organizaciones que no pueden permitirse fallar.',cta1:'Solicitar demo',cta2:'Ver soluciones →',m1l:'SLA garantizado',m2l:'Soporte NOC/SOC',m3l:'Clientes activos',m4l:'De Experiencia'},
-        sol:{tag:'Soluciones',title:'Arquitectura digital completa',sub:'Una plataforma integrada que cubre todo el ciclo de vida de la infraestructura tecnológica empresarial, desde la conectividad hasta la inteligencia de datos.',cta:'Solicitar una demo técnica',cards:[['Hosting Web Empresarial','Servidores dedicados y alojamiento de alto rendimiento con certificados SSL, copias de seguridad diarias y panel de control intuitivo.','Web & Servidores'],['Cloud Soberano','Despliegue híbrido y multi-cloud con cumplimiento normativo nacional. Migración, optimización y gestión continua sobre AWS, Azure y nube privada.','Arquitectura híbrida'],['Ciberseguridad 360°','SOC gestionado, gestión de identidades, protección de endpoints, inteligencia de amenazas y respuesta a incidentes con SLA garantizado.','Zero Trust'],['Telecomunicaciones','Redes WAN/SD-WAN, conectividad dedicada, voz empresarial y soluciones IoT para infraestructuras críticas nacionales e internacionales.','SD-WAN & MPLS'],['Virtualización','Consolidación de servidores, virtualización de escritorios (VDI) y contenedores Kubernetes para maximizar la eficiencia del CPD.','VMware · Nutanix'],['Datos & IA','Pipelines de datos, data lakes empresariales y modelos de IA aplicada para sectores regulados, con gobernanza y trazabilidad completa.','MLOps · DataOps'],['Servicios Gestionados','MSP integral: monitorización proactiva 24/7, gestión del ciclo de vida de activos, ITIL v4 y CMDB unificada para toda la infraestructura.','ITIL v4 · NOC 24/7']]},
-        srv:{tag:'Servicios',title:'Portfolio de servicios especializados',sub:'Módulos diseñados para cubrir cada capa del stack tecnológico con equipos certificados y metodologías probadas.',panelTitle:'Garantías de servicio',panelSub:'Compromisos medibles respaldados por contratos de nivel de servicio auditables.',sla1:'Disponibilidad SLA',sla2:'NOC & SOC activo',sla3:'Tiempo de respuesta',sla4:'Certificación activa',cta:'Solicitar consulta comercial',modules:[['Integra Data Tech','Soluciones de datos end-to-end: desde la ingesta hasta la visualización analítica avanzada.',['Arquitectura de Data Warehouse y Data Lake','ETL/ELT y pipelines en tiempo real','Business Intelligence y dashboards ejecutivos','Modelos predictivos con IA aplicada'],true],['Data Sales & CRM Tech','Habilitación comercial basada en datos: inteligencia de mercado y segmentación avanzada.',['Scoring y cualificación de leads con IA','Integración CRM y automatización de ventas','Enriquecimiento de bases de datos B2B','Reporting comercial en tiempo real'],false],['Provisión & Logística IT','Aprovisionamiento ágil de hardware, software y licencias para proyectos de cualquier escala.',['Catálogo de más de 50.000 referencias','Gestión de garantías y activos (CMDB)','Logística inversa y reciclaje certificado'],false],['Consultoría & Transformación Digital','Acompañamiento estratégico en proyectos de modernización tecnológica y adopción cloud.',['Auditorías de infraestructura y madurez digital','Roadmaps de transformación tecnológica','Gestión de proyectos PMO certificada (PMI/PRINCE2)'],false],['Soporte & Field Services','Soporte técnico presencial y remoto con cobertura nacional e internacional.',['Help Desk y soporte N1/N2/N3','Intervención en campo (break-fix, instalaciones)','SLA personalizado por criticidad'],false]]},
-        ind:{tag:'Industrias',title:'Sectores que confían en nosotros',sub:'Conocimiento vertical profundo en los sectores más exigentes en materia de disponibilidad, seguridad y cumplimiento normativo.',cta:'Hablar con un especialista de tu sector',sectors:[['Telco & Operadoras','BSS/OSS, infraestructura de red, gestión de NOC y soluciones de capacidad para operadoras de telecomunicaciones.'],['Sector Público','Administraciones centrales, CCAA y municipios: ENS, RGPD, cloud soberano y servicios de ciudadanía digital.'],['Inteligencia Artificial','Plataformas de IA empresarial, MLOps, infraestructura GPU y gobernanza de modelos para organizaciones data-driven.'],['Defensa & Seguridad','Redes clasificadas, comunicaciones tácticas, ciberseguridad OTAN y soluciones para infraestructuras críticas nacionales.'],['Banca & Seguros','Cumplimiento DORA/PSD2, core bancario cloud-native, detección de fraude con IA y continuidad de negocio.'],['Industria & Manufactura','IT/OT convergence, IIoT, SCADA en la nube y digitalización de planta para la industria 4.0.'],['Salud','HIS, telemedicina, interoperabilidad HL7/FHIR, seguridad de datos clínicos y cloud hospitalario certificado.'],['Retail & Distribución','Omnicanalidad, gestión de inventario en tiempo real, analítica de cliente e infraestructura de tienda conectada.']]},
-        nos:{tag:'Nosotros',title:'17 años construyendo infraestructuras críticas',missionTitle:'Misión',missionText:'Proveer soluciones de infraestructura digital de máxima disponibilidad y seguridad que permitan a nuestros clientes centrarse en su negocio, con la certeza de que su tecnología no fallará.',visionTitle:'Visión',visionText:'Ser el partner tecnológico de referencia en el sur de Europa para organizaciones que operan infraestructuras críticas, liderando la convergencia entre cloud, ciberseguridad e inteligencia artificial.',v1h:'Fiabilidad',v1p:'Cada compromiso está respaldado por SLAs medibles y auditables.',v2h:'Especialización',v2p:'Equipos certificados en las tecnologías líderes del mercado.',v3h:'Innovación',v3p:'Adoptamos nuevas tecnologías cuando están probadas y son seguras.',v4h:'Transparencia',v4p:'Comunicación honesta sobre capacidades, plazos y resultados.',timeline:[['2007','Fundación de INTEGRA en Madrid, enfocada en integración de sistemas y redes para empresas medianas.'],['2010','Primer contrato con infraestructura crítica nacional. Certificación ISO 9001 y apertura de NOC propio 24/7.'],['2014','Expansión internacional: proyectos en LATAM y Norte de África. Lanzamiento de servicios cloud gestionados.'],['2018','Apertura del SOC propio. Certificación ISO 27001. Partnership Advanced con AWS y Microsoft.'],['2021','Lanzamiento de la división de Datos & IA. Primer proyecto de cloud soberano para Administración Pública.'],['2024','+400 clientes activos. Presencia en 12 países. Reconocimiento como Top 10 MSP en España por CRN.']]},
-        par:{tag:'Partners',title:'Ecosistema tecnológico',sub:'Alianzas estratégicas con los fabricantes líderes del sector, con la más alta categoría de partnership en cada relación.',ecoTitle:'¿Tu empresa busca un integrador de confianza?',ecoSub:'Trabajamos junto a fabricantes y distribuidores para ofrecer las mejores condiciones comerciales y soporte posventa.',ecoCta:'Hablar con un especialista'},
-        cnt:{tag:'Contacto',title:'Empecemos a trabajar juntos',infoTitle:'Consulta comercial o demo técnica',infoSub:'Nuestro equipo de preventa analizará tu caso y te propondrá la arquitectura más adecuada en menos de 48 horas.',c1h:'Teléfono comercial',c1p:'+34 900 123 456 — Lun-Vie 9:00-18:30',c2h:'Email comercial',c2p:'ventas@integra-si.com',c3h:'Soporte 24/7',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Sede central',c4p:'Calle Serrano 41, 28001 Madrid, España',fNombre:'Nombre',fEmpresa:'Empresa',fEmail:'Email corporativo',fTipo:'Tipo de consulta',fMsg:'Mensaje',fMsgPh:'Cuéntanos sobre tu infraestructura actual y los retos que enfrentas...',fNombrePh:'Ana García',fEmpresaPh:'ACME Corp',fEmailPh:'ana@empresa.com',fOpt0:'Selecciona una opción',fOpt1:'Solicitar demo técnica',fOpt2:'Consulta comercial',fOpt3:'Información sobre soluciones',fOpt4:'Soporte a cliente existente',fOpt5:'Partnership o distribución',submit:'Enviar solicitud →',captchaLabel:'Seguridad: Seleccione el icono de la <b>Nube</b>'},
-        login:{tag:'Portal de Clientes',title:'Tu infraestructura,<br>bajo control',sub:'Gestiona tus servidores, alojamiento web y servicios cloud desde un único panel de control centralizado y completamente seguro.',f1:'Facturación y métricas en tiempo real',f2:'Despliegue de entornos en 1 clic',f3:'Soporte técnico prioritario',formTitle:'Iniciar sesión',emailLabel:'Email corporativo',emailPh:'tu@empresa.com',passLabel:'Contraseña',passPh:'••••••••',cta:'Acceder a mi panel →',noAccount:'¿Todavía no tienes cuenta?',register:'Registrar una cuenta nueva'},
-        registro:{tag:'Nuevos Clientes',title:'Comienza tu<br>transformación',sub:'Únete a cientos de empresas que ya confían en nuestra infraestructura para sus proyectos críticos.',f1:'Consultoría inicial gratuita',f2:'Migración sin cortes de servicio',f3:'SLAs de hasta 99.99%',formTitle:'Crear una cuenta',companyLabel:'Nombre de la empresa',companyPh:'Ej. ACME Corp',emailLabel:'Email corporativo',emailPh:'tu@empresa.com',passLabel:'Contraseña',passPh:'••••••••',cta:'Completar registro →',hasAccount:'¿Ya eres cliente de INTEGRA?',loginBtn:'Volver a iniciar sesión'},
-        footer:{desc:'Infraestructura digital end-to-end para organizaciones que no pueden permitirse fallar. 17 años de experiencia en proyectos críticos a nivel nacional e internacional.',col1:'Soluciones',col2:'Empresa',col3:'Legal',s1:'Cloud Soberano',s2:'Ciberseguridad 360°',s3:'Telecomunicaciones',s4:'Virtualización',s5:'Datos & IA',e1:'Historia',e2:'Misión y valores',e3:'Industrias',e4:'Partners',e5:'Trabaja con nosotros',l1:'Aviso legal',l2:'Política de privacidad',l3:'Política de cookies',l4:'Seguridad',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — Todos los derechos reservados'},
+        hero:{badge:'Madrid · Desde 2007',title:'Cuando tu tecnología<br>no puede<br><span>permitirse fallar</span>',sub:'Gestionamos la infraestructura crítica de más de 400 empresas en 12 países. Cloud, ciberseguridad, redes y soporte 24/7 — todo bajo un mismo SLA contractual.',cta1:'Hablar con un ingeniero',cta2:'Qué hacemos →',m1l:'Uptime contractual',m2l:'NOC y SOC propio',m3l:'Empresas gestionadas',m4l:'Años en producción'},
+        sol:{tag:'Soluciones',title:'Sin piezas sueltas',sub:'No vendemos productos. Diseñamos la arquitectura completa, la desplegamos y la mantenemos. Desde el primer cable hasta el último dashboard.',cta:'Cuéntanos tu caso',cards:[['Hosting Web Empresarial','Servidores dedicados con SSL incluido, backups diarios automatizados y panel propio. Sin sorpresas en la factura.','Web & Servidores'],['Cloud Soberano','Diseñamos arquitecturas híbridas sobre AWS, Azure y nube privada que cumplen con la normativa española. Nos encargamos de la migración.','Multi-cloud'],['Ciberseguridad','SOC propio activo 24/7, gestión de identidades y respuesta a incidentes. No subcontratamos la monitorización.','Zero Trust · ISO 27001'],['Telecomunicaciones','SD-WAN, MPLS, voz IP y conectividad dedicada. Infraestructura de red para sedes, plantas y entornos remotos.','SD-WAN & MPLS'],['Virtualización','Consolidación de servidores, VDI y Kubernetes. Reducimos costes de CPD sin sacrificar rendimiento.','VMware · Nutanix'],['Datos & IA','Arquitectura de datos para entornos regulados: ingestión, gobierno, visualización y modelos aplicados en producción.','MLOps · DataOps'],['Servicios Gestionados','MSP completo con monitorización proactiva, gestión de activos ITIL v4 y escalado N1/N2/N3 bajo SLA.','NOC 24/7']]},
+        srv:{tag:'Servicios',title:'Lo que hacemos, en detalle',sub:'Cada línea de servicio tiene un equipo propio, certificaciones específicas y SLAs diferenciados según criticidad.',panelTitle:'Lo que firmamos',panelSub:'Estos no son objetivos internos. Son compromisos contractuales que auditamos con el cliente cada trimestre.',sla1:'Uptime garantizado',sla2:'NOC & SOC activo',sla3:'Respuesta incidentes P1',sla4:'Certificación en vigor',cta:'Hablar con preventa',modules:[['Integra Data Tech','Construimos pipelines de datos desde cero: ingestión, transformación, modelado y visualización. Para que los datos lleguen cuando los necesitas, no al día siguiente.',['Arquitectura Data Warehouse y Data Lake','Pipelines ETL/ELT y streaming en tiempo real','Dashboards BI para dirección y operaciones','Modelos predictivos desplegados en producción'],true],['Data Sales & CRM Tech','Conectamos los datos comerciales con la operación de ventas. Menos Excel, más señal.',['Scoring de leads con modelos propios','Integración con cualquier CRM del mercado','Enriquecimiento de BBDD B2B','Informes comerciales automáticos'],false],['Provisión & Logística IT','Hardware, software y licencias sin esperas. Catálogo propio, gestión de garantías y logística inversa certificada.',['Más de 50.000 referencias en catálogo','CMDB integrada con el resto de servicios','Reciclaje certificado de material obsoleto'],false],['Consultoría & Transformación','Auditamos la situación real, no la ideal. Proponemos un camino concreto, no un PowerPoint de 80 slides.',['Auditorías de infraestructura y madurez digital','Plan de modernización por fases y prioridades','Dirección técnica de proyecto (PMI/PRINCE2)'],false],['Soporte & Field Services','Técnicos en campo y help desk propio. Cobertura peninsular e internacional sin subcontratación.',['Help Desk N1/N2/N3 en horario extendido','Intervención presencial con tiempo de respuesta SLA','Break-fix, instalaciones y relocalizaciones'],false]]},
+        ind:{tag:'Industrias',title:'Sectores donde trabajamos',sub:'Llevamos años en los sectores donde un fallo tiene consecuencias reales. Conocemos los requisitos técnicos, legales y operativos de cada uno.',cta:'Hablar con alguien de tu sector',sectors:[['Telco & Operadoras','BSS/OSS, infraestructura de red, NOC subcontratado y proyectos de expansión de capacidad.'],['Sector Público','ENS Categoría Alta, RGPD, cloud soberano e integración con sistemas de la Administración.'],['Inteligencia Artificial','Infraestructura GPU, MLOps y gobernanza de modelos para equipos de datos en producción.'],['Defensa & Seguridad','Redes clasificadas, comunicaciones tácticas y ciberseguridad para infraestructuras críticas nacionales.'],['Banca & Seguros','Entornos DORA y PSD2, core bancario cloud-native y continuidad de negocio con SLA financiero.'],['Industria & Manufactura','Convergencia IT/OT, IIoT, SCADA en nube privada y digitalización de línea de producción.'],['Salud','Interoperabilidad HL7/FHIR, HIS, telemedicina y seguridad de datos clínicos en entornos hospitalarios.'],['Retail & Distribución','Gestión de inventario en tiempo real, infraestructura de tienda y analítica de comportamiento de cliente.']]},
+        nos:{tag:'Nosotros',title:'Empezamos en 2007.<br>Seguimos aquí.',missionTitle:'Por qué existimos',missionText:'Muchas empresas compran tecnología y se quedan solas gestionándola. Nosotros hacemos lo contrario: nos hacemos cargo de la infraestructura para que el cliente pueda centrarse en su negocio. No tercerizamos la responsabilidad.',visionTitle:'A dónde vamos',visionText:'Queremos ser el integrador de referencia en el sur de Europa para entornos donde el tiempo de inactividad tiene coste real. Eso significa cloud, seguridad e IA convergiendo en una sola propuesta.',v1h:'Sin letra pequeña',v1p:'Los SLAs que firmamos son los que monitorizamos. Si no se cumplen, hay penalización. Así de simple.',v2h:'Equipo propio',v2p:'No subcontratamos el núcleo del servicio. Los ingenieros que firman el contrato son los que cogen el teléfono.',v3h:'Tecnología probada',v3p:'No somos early adopters de todo. Adoptamos cuando algo está maduro y podemos garantizarlo.',v4h:'Comunicación directa',v4p:'Un interlocutor técnico, no un account manager que abre tickets.',timeline:[['2007','Fundamos INTEGRA en Madrid con 6 personas. Los primeros clientes eran medianas empresas con problemas de red que nadie quería resolver.'],['2010','Primer contrato con infraestructura crítica nacional. Montamos el NOC propio en lugar de subcontratar. Certificación ISO 9001.'],['2014','Abrimos proyectos en LATAM y Norte de África. El equipo llegó a 40 personas. Primeros servicios cloud gestionados.'],['2018','SOC propio operativo. ISO 27001 certificada. Partnerships Advanced con AWS y Microsoft.'],['2021','División de Datos & IA. Primer proyecto de cloud soberano para una Administración Pública española.'],['2024','Más de 400 clientes activos en 12 países. Top 10 MSP en España según CRN. Y seguimos creciendo.']]},
+        par:{tag:'Partners',title:'Con quién trabajamos',sub:'Partnerships reales, no logos en una página. En cada relación tenemos el nivel más alto de certificación técnica y acceso directo a preventa del fabricante.',ecoTitle:'¿Buscas un integrador para tu canal?',ecoSub:'Trabajamos con fabricantes y distribuidores en proyectos conjuntos. Si quieres hablar de condiciones, escríbenos.',ecoCta:'Contactar'},
+        cnt:{tag:'Contacto',title:'Sin formularios eternos',infoTitle:'Cuéntanos qué necesitas',infoSub:'Un ingeniero de preventa analizará tu caso y te responde en menos de 24 horas laborables. Sin demo automática, sin secuencia de emails.',c1h:'Teléfono',c1p:'+34 900 123 456 — Lun-Vie 9:00-18:30',c2h:'Email comercial',c2p:'ventas@integra-si.com',c3h:'Soporte 24/7',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Oficina principal',c4p:'Calle Serrano 41, 28001 Madrid',fNombre:'Nombre',fEmpresa:'Empresa',fEmail:'Email corporativo',fTipo:'¿En qué te ayudamos?',fMsg:'Cuéntanos',fMsgPh:'Describe brevemente tu situación o lo que necesitas. No hace falta que sea perfecto.',fNombrePh:'Ana García',fEmpresaPh:'Tu empresa',fEmailPh:'ana@empresa.com',fOpt0:'Selecciona una opción',fOpt1:'Quiero una demo técnica',fOpt2:'Consulta comercial',fOpt3:'Información sobre un servicio concreto',fOpt4:'Soy cliente y necesito soporte',fOpt5:'Quiero ser partner o distribuidor',submit:'Enviar →',captchaLabel:'Seguridad: Seleccione el icono de la <b>Nube</b>'},
+        login:{tag:'Portal de Clientes',title:'Tu panel de<br>infraestructura',sub:'Accede a tus servidores, servicios cloud y métricas de disponibilidad. Si algo falla antes de que lo veas, ya sabemos.',f1:'Facturas, métricas y alertas en tiempo real',f2:'Gestión de entornos sin llamar a nadie',f3:'Ticket prioritario con técnico asignado',formTitle:'Iniciar sesión',emailLabel:'Email corporativo',emailPh:'tu@empresa.com',passLabel:'Contraseña',passPh:'••••••••',cta:'Acceder a mi panel →',noAccount:'¿Todavía no tienes cuenta?',register:'Registrar una cuenta nueva'},
+        registro:{tag:'Nuevos Clientes',title:'Empezamos<br>cuando quieras',sub:'Una llamada de 30 minutos para entender tu situación. Sin presión, sin propuesta automática.',f1:'Primera consulta técnica sin coste',f2:'Migración planificada sin cortes de servicio',f3:'SLA contractual desde el primer día',formTitle:'Crear una cuenta',companyLabel:'Nombre de la empresa',companyPh:'Ej. ACME Corp',emailLabel:'Email corporativo',emailPh:'tu@empresa.com',passLabel:'Contraseña',passPh:'••••••••',cta:'Completar registro →',hasAccount:'¿Ya eres cliente de INTEGRA?',loginBtn:'Volver a iniciar sesión'},
+        footer:{desc:'Desde 2007 gestionando infraestructura crítica. Cloud, ciberseguridad, redes y soporte 24/7 para más de 400 empresas en 12 países.',col1:'Soluciones',col2:'Empresa',col3:'Legal',s1:'Cloud Soberano',s2:'Ciberseguridad 360°',s3:'Telecomunicaciones',s4:'Virtualización',s5:'Datos & IA',e1:'Historia',e2:'Misión y valores',e3:'Industrias',e4:'Partners',e5:'Trabaja con nosotros',l1:'Aviso legal',l2:'Política de privacidad',l3:'Política de cookies',l4:'Seguridad',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — Todos los derechos reservados'},
         cookie:{text:'Utilizamos cookies propias y de terceros para analizar nuestros servicios y mostrarte publicidad relacionada con tus preferencias. Puedes obtener más información en nuestra <a href="#">Política de Cookies</a>.',reject:'Rechazar',accept:'Aceptar todas'},
         toast:'✓ Solicitud enviada — te contactaremos en menos de 48 h',
         alerts:{fillForm:'Por favor completa al menos el nombre y el email.',selectIcon:'Por favor, selecciona un icono de seguridad.',wrongIcon:'Icono de seguridad incorrecto. Inténtalo de nuevo.'}
       },
       en: {
         nav:{inicio:'Home',soluciones:'Solutions',servicios:'Services',industrias:'Industries',nosotros:'About',partners:'Partners',clientes:'Client Access',contacto:'Contact'},
-        hero:{badge:'17 years of operational excellence',title:'End-to-end digital infrastructure<br>for <span>critical enterprises</span>',sub:'Sovereign cloud, 360° cybersecurity, telecommunications and managed IT services for organizations that cannot afford to fail.',cta1:'Request a demo',cta2:'View solutions →',m1l:'Guaranteed SLA',m2l:'NOC/SOC Support',m3l:'Active Clients',m4l:'Years of Experience'},
-        sol:{tag:'Solutions',title:'Complete digital architecture',sub:'An integrated platform covering the full lifecycle of enterprise technology infrastructure, from connectivity to data intelligence.',cta:'Request a technical demo',cards:[['Enterprise Web Hosting','Dedicated servers and high-performance hosting with SSL certificates, daily backups and intuitive control panel.','Web & Servers'],['Sovereign Cloud','Hybrid and multi-cloud deployment with national regulatory compliance. Migration, optimization and continuous management on AWS, Azure and private cloud.','Hybrid Architecture'],['360° Cybersecurity','Managed SOC, identity management, endpoint protection, threat intelligence and incident response with guaranteed SLA.','Zero Trust'],['Telecommunications','WAN/SD-WAN networks, dedicated connectivity, enterprise voice and IoT solutions for critical national and international infrastructures.','SD-WAN & MPLS'],['Virtualization','Server consolidation, desktop virtualization (VDI) and Kubernetes containers to maximize data center efficiency.','VMware · Nutanix'],['Data & AI','Data pipelines, enterprise data lakes and applied AI models for regulated sectors, with full governance and traceability.','MLOps · DataOps'],['Managed Services','Full MSP: proactive 24/7 monitoring, asset lifecycle management, ITIL v4 and unified CMDB for all infrastructure.','ITIL v4 · NOC 24/7']]},
-        srv:{tag:'Services',title:'Specialized services portfolio',sub:'Modules designed to cover every layer of the technology stack with certified teams and proven methodologies.',panelTitle:'Service guarantees',panelSub:'Measurable commitments backed by auditable service level agreements.',sla1:'SLA Availability',sla2:'Active NOC & SOC',sla3:'Response time',sla4:'Active certification',cta:'Request commercial consultation',modules:[['Integra Data Tech','End-to-end data solutions: from ingestion to advanced analytical visualization.',['Data Warehouse and Data Lake architecture','ETL/ELT and real-time pipelines','Business Intelligence and executive dashboards','Predictive models with applied AI'],true],['Data Sales & CRM Tech','Data-driven commercial enablement: market intelligence and advanced segmentation.',['AI-powered lead scoring and qualification','CRM integration and sales automation','B2B database enrichment','Real-time commercial reporting'],false],['IT Provisioning & Logistics','Agile provisioning of hardware, software and licenses for projects of any scale.',['Catalog of over 50,000 references','Warranty and asset management (CMDB)','Reverse logistics and certified recycling'],false],['Consulting & Digital Transformation','Strategic support in technology modernization and cloud adoption projects.',['Infrastructure and digital maturity audits','Technology transformation roadmaps','Certified PMO project management (PMI/PRINCE2)'],false],['Support & Field Services','On-site and remote technical support with national and international coverage.',['Help Desk and N1/N2/N3 support','Field intervention (break-fix, installations)','SLA customized by criticality'],false]]},
-        ind:{tag:'Industries',title:'Sectors that trust us',sub:'Deep vertical knowledge in the most demanding sectors regarding availability, security and regulatory compliance.',cta:'Talk to a sector specialist',sectors:[['Telco & Carriers','BSS/OSS, network infrastructure, NOC management and capacity solutions for telecommunications operators.'],['Public Sector','Central administrations, regional governments and municipalities: ENS, GDPR, sovereign cloud and digital citizen services.'],['Artificial Intelligence','Enterprise AI platforms, MLOps, GPU infrastructure and model governance for data-driven organizations.'],['Defense & Security','Classified networks, tactical communications, NATO cybersecurity and solutions for national critical infrastructures.'],['Banking & Insurance','DORA/PSD2 compliance, cloud-native banking core, AI fraud detection and business continuity.'],['Industry & Manufacturing','IT/OT convergence, IIoT, cloud SCADA and factory digitalization for industry 4.0.'],['Healthcare','HIS, telemedicine, HL7/FHIR interoperability, clinical data security and certified hospital cloud.'],['Retail & Distribution','Omnichannel, real-time inventory management, customer analytics and connected store infrastructure.']]},
-        nos:{tag:'About',title:'17 years building critical infrastructures',missionTitle:'Mission',missionText:'To provide maximum availability and security digital infrastructure solutions that allow our clients to focus on their business, with the certainty that their technology will not fail.',visionTitle:'Vision',visionText:'To be the reference technology partner in southern Europe for organizations operating critical infrastructures, leading the convergence of cloud, cybersecurity and artificial intelligence.',v1h:'Reliability',v1p:'Every commitment is backed by measurable and auditable SLAs.',v2h:'Specialization',v2p:'Teams certified in leading market technologies.',v3h:'Innovation',v3p:'We adopt new technologies when they are proven and secure.',v4h:'Transparency',v4p:'Honest communication about capabilities, timelines and results.',timeline:[['2007','INTEGRA founded in Madrid, focused on systems and network integration for mid-sized companies.'],['2010','First national critical infrastructure contract. ISO 9001 certification and launch of own 24/7 NOC.'],['2014','International expansion: projects in LATAM and North Africa. Launch of managed cloud services.'],['2018','Launch of own SOC. ISO 27001 certification. Advanced partnership with AWS and Microsoft.'],['2021','Launch of the Data & AI division. First sovereign cloud project for the Public Administration.'],['2024','+400 active clients. Presence in 12 countries. Recognized as Top 10 MSP in Spain by CRN.']]},
-        par:{tag:'Partners',title:'Technology ecosystem',sub:'Strategic alliances with leading industry manufacturers, with the highest partnership category in each relationship.',ecoTitle:'Is your company looking for a trusted integrator?',ecoSub:'We work alongside manufacturers and distributors to offer the best commercial terms and after-sales support.',ecoCta:'Talk to a specialist'},
-        cnt:{tag:'Contact',title:"Let's start working together",infoTitle:'Commercial inquiry or technical demo',infoSub:'Our pre-sales team will analyze your case and propose the most appropriate architecture in less than 48 hours.',c1h:'Sales phone',c1p:'+34 900 123 456 — Mon-Fri 9:00-18:30',c2h:'Sales email',c2p:'ventas@integra-si.com',c3h:'24/7 Support',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Headquarters',c4p:'Calle Serrano 41, 28001 Madrid, Spain',fNombre:'Name',fEmpresa:'Company',fEmail:'Corporate email',fTipo:'Type of inquiry',fMsg:'Message',fMsgPh:'Tell us about your current infrastructure and the challenges you face...',fNombrePh:'John Smith',fEmpresaPh:'ACME Corp',fEmailPh:'john@company.com',fOpt0:'Select an option',fOpt1:'Request technical demo',fOpt2:'Commercial inquiry',fOpt3:'Information about solutions',fOpt4:'Existing client support',fOpt5:'Partnership or distribution',submit:'Send request →',captchaLabel:'Security: Select the <b>Cloud</b> icon'},
+        hero:{badge:'Madrid · Since 2007',title:'When your technology<br>cannot afford<br><span>to fail</span>',sub:'We manage critical infrastructure for over 400 companies across 12 countries. Cloud, cybersecurity, networking and 24/7 support — all under a single contractual SLA.',cta1:'Talk to an engineer',cta2:'What we do →',m1l:'Contractual uptime',m2l:'Own NOC & SOC',m3l:'Companies managed',m4l:'Years in production'},
+        sol:{tag:'Solutions',title:'No loose ends',sub:'We don\'t sell products. We design the full architecture, deploy it and keep it running. From the first cable to the last dashboard.',cta:'Tell us your case',cards:[['Enterprise Web Hosting','Dedicated servers with SSL included, automated daily backups and our own control panel. No billing surprises.','Web & Servers'],['Sovereign Cloud','We design hybrid architectures on AWS, Azure and private cloud that meet Spanish regulatory requirements. We handle the migration.','Multi-cloud'],['Cybersecurity','Own SOC active 24/7, identity management and incident response. We don\'t outsource monitoring.','Zero Trust · ISO 27001'],['Telecommunications','SD-WAN, MPLS, IP voice and dedicated connectivity. Network infrastructure for offices, plants and remote sites.','SD-WAN & MPLS'],['Virtualization','Server consolidation, VDI and Kubernetes. We reduce data center costs without sacrificing performance.','VMware · Nutanix'],['Data & AI','Data architecture for regulated environments: ingestion, governance, visualization and production-ready applied models.','MLOps · DataOps'],['Managed Services','Full MSP with proactive monitoring, ITIL v4 asset management and N1/N2/N3 escalation under SLA.','NOC 24/7']]},
+        srv:{tag:'Services',title:'What we do, in detail',sub:'Each service line has its own team, specific certifications and differentiated SLAs by criticality level.',panelTitle:'What we sign',panelSub:'These are not internal targets. They are contractual commitments we audit with the client every quarter.',sla1:'Guaranteed uptime',sla2:'Active NOC & SOC',sla3:'P1 incident response',sla4:'Valid certification',cta:'Talk to pre-sales',modules:[['Integra Data Tech','We build data pipelines from scratch: ingestion, transformation, modelling and visualization. So data arrives when you need it, not the next day.',['Data Warehouse and Data Lake architecture','ETL/ELT pipelines and real-time streaming','BI dashboards for leadership and operations','Predictive models deployed in production'],true],['Data Sales & CRM Tech','We connect commercial data with sales operations. Less spreadsheets, more signal.',['Lead scoring with custom models','Integration with any CRM on the market','B2B database enrichment','Automated commercial reporting'],false],['IT Provisioning & Logistics','Hardware, software and licenses without delays. Own catalog, warranty management and certified reverse logistics.',['Over 50,000 references in catalog','CMDB integrated with all other services','Certified recycling of obsolete equipment'],false],['Consulting & Transformation','We audit the real situation, not the ideal one. We propose a concrete path, not an 80-slide deck.',['Infrastructure and digital maturity audits','Phased modernization roadmap with clear priorities','Technical project management (PMI/PRINCE2)'],false],['Support & Field Services','Field technicians and own help desk. National and international coverage without subcontracting.',['Help Desk N1/N2/N3 extended hours','On-site intervention with SLA response time','Break-fix, installations and relocations'],false]]},
+        ind:{tag:'Industries',title:'Sectors we work in',sub:'We\'ve spent years in sectors where a failure has real consequences. We know the technical, legal and operational requirements of each one.',cta:'Talk to someone in your sector',sectors:[['Telco & Carriers','BSS/OSS, network infrastructure, outsourced NOC and capacity expansion projects.'],['Public Sector','ENS High Category, GDPR, sovereign cloud and integration with Public Administration systems.'],['Artificial Intelligence','GPU infrastructure, MLOps and model governance for data teams running in production.'],['Defense & Security','Classified networks, tactical communications and cybersecurity for national critical infrastructures.'],['Banking & Insurance','DORA and PSD2 environments, cloud-native banking core and business continuity with financial SLA.'],['Industry & Manufacturing','IT/OT convergence, IIoT, SCADA on private cloud and production line digitalization.'],['Healthcare','HL7/FHIR interoperability, HIS, telemedicine and clinical data security in hospital environments.'],['Retail & Distribution','Real-time inventory management, store infrastructure and customer behaviour analytics.']]},
+        nos:{tag:'About',title:'Started in 2007.<br>Still here.',missionTitle:'Why we exist',missionText:'Many companies buy technology and end up managing it alone. We do the opposite: we take ownership of the infrastructure so the client can focus on their business. We don\'t outsource the responsibility.',visionTitle:'Where we\'re going',visionText:'We want to be the reference integrator in southern Europe for environments where downtime has a real cost. That means cloud, security and AI converging in a single proposal.',v1h:'No small print',v1p:'The SLAs we sign are the ones we monitor. If they\'re not met, there\'s a penalty. Simple as that.',v2h:'Own team',v2p:'We don\'t outsource the core of the service. The engineers who sign the contract are the ones who pick up the phone.',v3h:'Proven technology',v3p:'We\'re not early adopters of everything. We adopt when something is mature and we can guarantee it.',v4h:'Direct communication',v4p:'One technical contact, not an account manager who opens tickets.',timeline:[['2007','We founded INTEGRA in Madrid with 6 people. First clients were mid-sized companies with network problems nobody wanted to solve.'],['2010','First critical national infrastructure contract. Built our own NOC instead of subcontracting. ISO 9001 certification.'],['2014','Opened projects in LATAM and North Africa. Team reached 40 people. First managed cloud services.'],['2018','Own SOC operational. ISO 27001 certified. Advanced partnerships with AWS and Microsoft.'],['2021','Data & AI division launched. First sovereign cloud project for a Spanish Public Administration.'],['2024','Over 400 active clients across 12 countries. Top 10 MSP in Spain per CRN. Still growing.']]},
+        par:{tag:'Partners',title:'Who we work with',sub:'Real partnerships, not logos on a page. In each relationship we hold the highest level of technical certification and direct access to the manufacturer\'s pre-sales team.',ecoTitle:'Looking for an integrator for your channel?',ecoSub:'We work with manufacturers and distributors on joint projects. If you want to discuss terms, write to us.',ecoCta:'Contact us'},
+        cnt:{tag:'Contact',title:'No endless forms',infoTitle:'Tell us what you need',infoSub:'A pre-sales engineer will review your case and reply within 24 business hours. No automated demo, no email sequence.',c1h:'Phone',c1p:'+34 900 123 456 — Mon-Fri 9:00-18:30',c2h:'Sales email',c2p:'ventas@integra-si.com',c3h:'24/7 Support',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Main office',c4p:'Calle Serrano 41, 28001 Madrid',fNombre:'Name',fEmpresa:'Company',fEmail:'Corporate email',fTipo:'How can we help?',fMsg:'Tell us',fMsgPh:'Describe your situation briefly. It doesn\'t need to be perfect.',fNombrePh:'John Smith',fEmpresaPh:'Your company',fEmailPh:'john@company.com',fOpt0:'Select an option',fOpt1:'I want a technical demo',fOpt2:'Commercial inquiry',fOpt3:'Info on a specific service',fOpt4:'I\'m a client and need support',fOpt5:'I want to be a partner or distributor',submit:'Send →',captchaLabel:'Security: Select the <b>Cloud</b> icon'},
         login:{tag:'Client Portal',title:'Your infrastructure,<br>under control',sub:'Manage your servers, web hosting and cloud services from a single centralized and completely secure control panel.',f1:'Billing and real-time metrics',f2:'1-click environment deployment',f3:'Priority technical support',formTitle:'Sign in',emailLabel:'Corporate email',emailPh:'you@company.com',passLabel:'Password',passPh:'••••••••',cta:'Access my dashboard →',noAccount:"Don't have an account yet?",register:'Register a new account'},
         registro:{tag:'New Clients',title:'Start your<br>transformation',sub:'Join hundreds of companies already trusting our infrastructure for their critical projects.',f1:'Free initial consulting',f2:'Migration without service interruption',f3:'SLAs up to 99.99%',formTitle:'Create an account',companyLabel:'Company name',companyPh:'E.g. ACME Corp',emailLabel:'Corporate email',emailPh:'you@company.com',passLabel:'Password',passPh:'••••••••',cta:'Complete registration →',hasAccount:'Already an INTEGRA client?',loginBtn:'Back to sign in'},
-        footer:{desc:'End-to-end digital infrastructure for organizations that cannot afford to fail. 17 years of experience in critical projects nationally and internationally.',col1:'Solutions',col2:'Company',col3:'Legal',s1:'Sovereign Cloud',s2:'360° Cybersecurity',s3:'Telecommunications',s4:'Virtualization',s5:'Data & AI',e1:'History',e2:'Mission & values',e3:'Industries',e4:'Partners',e5:'Work with us',l1:'Legal notice',l2:'Privacy policy',l3:'Cookie policy',l4:'Security',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — All rights reserved'},
+        footer:{desc:'Managing critical infrastructure since 2007. Cloud, cybersecurity, networking and 24/7 support for over 400 companies across 12 countries.',col1:'Solutions',col2:'Company',col3:'Legal',s1:'Sovereign Cloud',s2:'360° Cybersecurity',s3:'Telecommunications',s4:'Virtualization',s5:'Data & AI',e1:'History',e2:'Mission & values',e3:'Industries',e4:'Partners',e5:'Work with us',l1:'Legal notice',l2:'Privacy policy',l3:'Cookie policy',l4:'Security',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — All rights reserved'},
         cookie:{text:'We use our own and third-party cookies to analyze our services and show you relevant advertising. You can get more information in our <a href="#">Cookie Policy</a>.',reject:'Reject',accept:'Accept all'},
         toast:'✓ Request sent — we will contact you within 48 hours',
         alerts:{fillForm:'Please fill in at least your name and email.',selectIcon:'Please select a security icon.',wrongIcon:'Incorrect security icon. Please try again.'}
       },
       fr: {
         nav:{inicio:'Accueil',soluciones:'Solutions',servicios:'Services',industrias:'Industries',nosotros:'À propos',partners:'Partenaires',clientes:'Espace Clients',contacto:'Contact'},
-        hero:{badge:"17 ans d'excellence opérationnelle",title:'Infrastructure numérique end-to-end<br>pour les <span>entreprises critiques</span>',sub:"Cloud souverain, cybersécurité 360°, télécommunications et services IT gérés pour les organisations qui ne peuvent pas se permettre de défaillir.",cta1:'Demander une démo',cta2:'Voir les solutions →',m1l:'SLA garanti',m2l:'Support NOC/SOC',m3l:'Clients actifs',m4l:"Ans d'expérience"},
+        hero:{badge:'Madrid · Depuis 2007',title:'Quand votre technologie<br>ne peut pas<br><span>se permettre de tomber</span>',sub:"Nous gérons l'infrastructure critique de plus de 400 entreprises dans 12 pays. Cloud, cybersécurité, réseaux et support 24/7 — sous un seul SLA contractuel.",cta1:'Parler à un ingénieur',cta2:'Ce que nous faisons →',m1l:'Disponibilité contractuelle',m2l:'NOC & SOC propres',m3l:'Entreprises gérées',m4l:'Ans en production'},
         sol:{tag:'Solutions',title:'Architecture numérique complète',sub:"Une plateforme intégrée couvrant tout le cycle de vie de l'infrastructure technologique d'entreprise, de la connectivité à l'intelligence des données.",cta:'Demander une démo technique',cards:[["Hébergement Web Entreprise","Serveurs dédiés et hébergement haute performance avec certificats SSL, sauvegardes quotidiennes et panneau de contrôle intuitif.",'Web & Serveurs'],['Cloud Souverain',"Déploiement hybride et multi-cloud avec conformité réglementaire nationale. Migration, optimisation et gestion continue sur AWS, Azure et cloud privé.",'Architecture hybride'],['Cybersécurité 360°','SOC géré, gestion des identités, protection des endpoints, renseignement sur les menaces et réponse aux incidents avec SLA garanti.','Zero Trust'],['Télécommunications','Réseaux WAN/SD-WAN, connectivité dédiée, voix entreprise et solutions IoT pour les infrastructures critiques nationales et internationales.','SD-WAN & MPLS'],['Virtualisation',"Consolidation de serveurs, virtualisation des postes de travail (VDI) et conteneurs Kubernetes pour maximiser l'efficacité du datacenter.",'VMware · Nutanix'],['Données & IA','Pipelines de données, data lakes entreprise et modèles IA appliquée pour secteurs réglementés, avec gouvernance et traçabilité complètes.','MLOps · DataOps'],['Services Gérés',"MSP complet : surveillance proactive 24/7, gestion du cycle de vie des actifs, ITIL v4 et CMDB unifiée pour toute l'infrastructure.",'ITIL v4 · NOC 24/7']]},
         srv:{tag:'Services',title:'Portefeuille de services spécialisés',sub:'Modules conçus pour couvrir chaque couche du stack technologique avec des équipes certifiées et des méthodologies éprouvées.',panelTitle:'Garanties de service',panelSub:'Engagements mesurables soutenus par des contrats de niveau de service auditables.',sla1:'Disponibilité SLA',sla2:'NOC & SOC actif',sla3:'Temps de réponse',sla4:'Certification active',cta:'Demander une consultation commerciale',modules:[['Integra Data Tech',"Solutions de données end-to-end : de l'ingestion à la visualisation analytique avancée.",['Architecture Data Warehouse et Data Lake','ETL/ELT et pipelines en temps réel','Business Intelligence et tableaux de bord exécutifs','Modèles prédictifs avec IA appliquée'],true],['Data Sales & CRM Tech','Activation commerciale basée sur les données : intelligence de marché et segmentation avancée.',['Scoring et qualification de leads avec IA','Intégration CRM et automatisation des ventes','Enrichissement de bases de données B2B','Reporting commercial en temps réel'],false],['Approvisionnement & Logistique IT',"Approvisionnement agile en matériel, logiciels et licences pour des projets de toute échelle.",['Catalogue de plus de 50 000 références','Gestion des garanties et des actifs (CMDB)','Logistique inverse et recyclage certifié'],false],['Conseil & Transformation Numérique',"Accompagnement stratégique dans les projets de modernisation technologique et d'adoption cloud.",["Audits d'infrastructure et de maturité numérique",'Feuilles de route de transformation technologique','Gestion de projets PMO certifiée (PMI/PRINCE2)'],false],['Support & Services Terrain','Support technique sur site et à distance avec couverture nationale et internationale.',['Help Desk et support N1/N2/N3','Intervention sur le terrain (break-fix, installations)','SLA personnalisé par criticité'],false]]},
         ind:{tag:'Industries',title:'Secteurs qui nous font confiance',sub:'Connaissance verticale approfondie des secteurs les plus exigeants en matière de disponibilité, de sécurité et de conformité réglementaire.',cta:'Parler à un spécialiste de votre secteur',sectors:[['Télécoms & Opérateurs','BSS/OSS, infrastructure réseau, gestion des NOC et solutions de capacité pour les opérateurs de télécommunications.'],['Secteur Public','Administrations centrales, régions et municipalités : ENS, RGPD, cloud souverain et services de citoyenneté numérique.'],["Intelligence Artificielle","Plateformes d'IA d'entreprise, MLOps, infrastructure GPU et gouvernance des modèles pour les organisations data-driven."],['Défense & Sécurité','Réseaux classifiés, communications tactiques, cybersécurité OTAN et solutions pour les infrastructures critiques nationales.'],['Banque & Assurance','Conformité DORA/PSD2, core bancaire cloud-native, détection de fraude avec IA et continuité des activités.'],['Industrie & Fabrication',"Convergence IT/OT, IIoT, SCADA dans le cloud et numérisation d'usine pour l'industrie 4.0."],['Santé','HIS, télémédecine, interopérabilité HL7/FHIR, sécurité des données cliniques et cloud hospitalier certifié.'],['Retail & Distribution','Omnicanal, gestion des stocks en temps réel, analyse client et infrastructure de magasin connecté.']]},
-        nos:{tag:'À propos',title:'17 ans à construire des infrastructures critiques',missionTitle:'Mission',missionText:"Fournir des solutions d'infrastructure numérique à haute disponibilité et sécurité qui permettent à nos clients de se concentrer sur leur activité, avec la certitude que leur technologie ne tombera pas en panne.",visionTitle:'Vision',visionText:"Être le partenaire technologique de référence dans le sud de l'Europe pour les organisations opérant des infrastructures critiques, en menant la convergence entre cloud, cybersécurité et intelligence artificielle.",v1h:'Fiabilité',v1p:'Chaque engagement est soutenu par des SLAs mesurables et auditables.',v2h:'Spécialisation',v2p:'Équipes certifiées dans les technologies leaders du marché.',v3h:'Innovation',v3p:'Nous adoptons les nouvelles technologies quand elles sont éprouvées et sécurisées.',v4h:'Transparence',v4p:'Communication honnête sur les capacités, les délais et les résultats.',timeline:[['2007',"Fondation d'INTEGRA à Madrid, axée sur l'intégration de systèmes et de réseaux pour les entreprises de taille moyenne."],['2010','Premier contrat d\'infrastructure critique nationale. Certification ISO 9001 et ouverture du NOC propre 24/7.'],['2014','Expansion internationale : projets en LATAM et en Afrique du Nord. Lancement des services cloud gérés.'],['2018','Ouverture du SOC propre. Certification ISO 27001. Partenariat Advanced avec AWS et Microsoft.'],['2021',"Lancement de la division Données & IA. Premier projet de cloud souverain pour l'Administration Publique."],['2024','+400 clients actifs. Présence dans 12 pays. Reconnaissance comme Top 10 MSP en Espagne par CRN.']]},
-        par:{tag:'Partenaires',title:'Écosystème technologique',sub:'Alliances stratégiques avec les fabricants leaders du secteur, avec la plus haute catégorie de partenariat dans chaque relation.',ecoTitle:'Votre entreprise cherche un intégrateur de confiance ?',ecoSub:'Nous travaillons avec des fabricants et des distributeurs pour offrir les meilleures conditions commerciales et le meilleur support après-vente.',ecoCta:'Parler à un spécialiste'},
-        cnt:{tag:'Contact',title:'Commençons à travailler ensemble',infoTitle:'Demande commerciale ou démo technique',infoSub:'Notre équipe de pré-vente analysera votre cas et vous proposera l\'architecture la plus adaptée en moins de 48 heures.',c1h:'Téléphone commercial',c1p:'+34 900 123 456 — Lun-Ven 9h00-18h30',c2h:'Email commercial',c2p:'ventas@integra-si.com',c3h:'Support 24/7',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Siège social',c4p:'Calle Serrano 41, 28001 Madrid, Espagne',fNombre:'Nom',fEmpresa:'Entreprise',fEmail:'Email professionnel',fTipo:'Type de demande',fMsg:'Message',fMsgPh:'Parlez-nous de votre infrastructure actuelle et des défis auxquels vous faites face...',fNombrePh:'Jean Dupont',fEmpresaPh:'ACME Corp',fEmailPh:'jean@entreprise.com',fOpt0:'Sélectionnez une option',fOpt1:'Demander une démo technique',fOpt2:'Demande commerciale',fOpt3:'Informations sur les solutions',fOpt4:'Support client existant',fOpt5:'Partenariat ou distribution',submit:'Envoyer la demande →',captchaLabel:"Sécurité : Sélectionnez l'icône du <b>Nuage</b>"},
+        nos:{tag:'À propos',title:'Fondés en 2007.<br>Toujours là.',missionTitle:'Pourquoi nous existons',missionText:"Beaucoup d'entreprises achètent de la technologie et se retrouvent seules à la gérer. Nous faisons le contraire : nous prenons en charge l'infrastructure pour que le client puisse se concentrer sur son métier. Nous n'externalisons pas la responsabilité.",visionTitle:'Où nous allons',visionText:"Nous voulons être l'intégrateur de référence dans le sud de l'Europe pour les environnements où l'indisponibilité a un coût réel. Cela signifie cloud, sécurité et IA qui convergent dans une seule proposition.",v1h:'Sans petites lignes',v1p:'Les SLAs que nous signons sont ceux que nous monitorons. S\'ils ne sont pas respectés, il y a pénalité.',v2h:'Équipe propre',v2p:'Nous n\'externalisons pas le cœur du service. Les ingénieurs qui signent le contrat sont ceux qui répondent au téléphone.',v3h:'Technologie éprouvée',v3p:'Nous n\'adoptons pas tout en version bêta. Nous adoptons quand c\'est mature et qu\'on peut le garantir.',v4h:'Communication directe',v4p:'Un interlocuteur technique, pas un account manager qui ouvre des tickets.',timeline:[['2007',"Nous avons fondé INTEGRA à Madrid avec 6 personnes. Premiers clients : des PME avec des problèmes réseau que personne ne voulait résoudre."],['2010',"Premier contrat d'infrastructure critique nationale. Nous avons monté notre propre NOC au lieu de sous-traiter. Certification ISO 9001."],['2014','Ouverture de projets en LATAM et en Afrique du Nord. L\'équipe a atteint 40 personnes. Premiers services cloud gérés.'],['2018','SOC propre opérationnel. ISO 27001 certifiée. Partenariats Advanced avec AWS et Microsoft.'],['2021',"Division Données & IA lancée. Premier projet de cloud souverain pour une administration publique espagnole."],['2024','Plus de 400 clients actifs dans 12 pays. Top 10 MSP en Espagne selon CRN. Et nous continuons à croître.']]},
+        par:{tag:'Partenaires',title:'Avec qui nous travaillons',sub:'Des partenariats réels, pas des logos sur une page. Dans chaque relation, nous détenons le plus haut niveau de certification technique et un accès direct à la prévente du fabricant.',ecoTitle:'Vous cherchez un intégrateur pour votre canal ?',ecoSub:'Nous travaillons avec des fabricants et des distributeurs sur des projets communs. Écrivez-nous pour parler des conditions.',ecoCta:'Nous contacter'},
+        cnt:{tag:'Contact',title:'Sans formulaires interminables',infoTitle:'Dites-nous ce dont vous avez besoin',infoSub:'Un ingénieur de pré-vente examinera votre cas et vous répondra sous 24 heures ouvrées. Pas de démo automatique, pas de séquence d\'emails.',c1h:'Téléphone',c1p:'+34 900 123 456 — Lun-Ven 9h00-18h30',c2h:'Email commercial',c2p:'ventas@integra-si.com',c3h:'Support 24/7',c3p:'soporte@integra-si.com · +34 900 999 247',c4h:'Bureau principal',c4p:'Calle Serrano 41, 28001 Madrid',fNombre:'Nom',fEmpresa:'Entreprise',fEmail:'Email professionnel',fTipo:'Comment pouvons-nous aider ?',fMsg:'Dites-nous',fMsgPh:'Décrivez brièvement votre situation. Pas besoin que ce soit parfait.',fNombrePh:'Jean Dupont',fEmpresaPh:'Votre entreprise',fEmailPh:'jean@entreprise.com',fOpt0:'Sélectionnez une option',fOpt1:'Je veux une démo technique',fOpt2:'Demande commerciale',fOpt3:'Info sur un service spécifique',fOpt4:'Je suis client et j\'ai besoin d\'aide',fOpt5:'Je veux être partenaire ou distributeur',submit:'Envoyer →',captchaLabel:"Sécurité : Sélectionnez l'icône du <b>Nuage</b>"},
         login:{tag:'Portail Clients',title:'Votre infrastructure,<br>sous contrôle',sub:'Gérez vos serveurs, hébergement web et services cloud depuis un panneau de contrôle centralisé et entièrement sécurisé.',f1:'Facturation et métriques en temps réel',f2:"Déploiement d'environnements en 1 clic",f3:'Support technique prioritaire',formTitle:'Se connecter',emailLabel:'Email professionnel',emailPh:'vous@entreprise.com',passLabel:'Mot de passe',passPh:'••••••••',cta:'Accéder à mon tableau de bord →',noAccount:"Vous n'avez pas encore de compte ?",register:'Créer un nouveau compte'},
         registro:{tag:'Nouveaux Clients',title:'Commencez votre<br>transformation',sub:"Rejoignez des centaines d'entreprises qui font déjà confiance à notre infrastructure pour leurs projets critiques.",f1:'Conseil initial gratuit',f2:'Migration sans interruption de service',f3:"SLAs jusqu'à 99,99%",formTitle:'Créer un compte',companyLabel:"Nom de l'entreprise",companyPh:'Ex. ACME Corp',emailLabel:'Email professionnel',emailPh:'vous@entreprise.com',passLabel:'Mot de passe',passPh:'••••••••',cta:"Finaliser l'inscription →",hasAccount:"Déjà client d'INTEGRA ?",loginBtn:'Retour à la connexion'},
-        footer:{desc:"Infrastructure numérique end-to-end pour les organisations qui ne peuvent pas se permettre de défaillir. 17 ans d'expérience dans des projets critiques aux niveaux national et international.",col1:'Solutions',col2:'Entreprise',col3:'Légal',s1:'Cloud Souverain',s2:'Cybersécurité 360°',s3:'Télécommunications',s4:'Virtualisation',s5:'Données & IA',e1:'Histoire',e2:'Mission & valeurs',e3:'Industries',e4:'Partenaires',e5:'Travailler avec nous',l1:'Mentions légales',l2:'Politique de confidentialité',l3:'Politique de cookies',l4:'Sécurité',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — Tous droits réservés'},
+        footer:{desc:"Gestion d'infrastructure critique depuis 2007. Cloud, cybersécurité, réseaux et support 24/7 pour plus de 400 entreprises dans 12 pays.",col1:'Solutions',col2:'Entreprise',col3:'Légal',s1:'Cloud Souverain',s2:'Cybersécurité 360°',s3:'Télécommunications',s4:'Virtualisation',s5:'Données & IA',e1:'Histoire',e2:'Mission & valeurs',e3:'Industries',e4:'Partenaires',e5:'Travailler avec nous',l1:'Mentions légales',l2:'Politique de confidentialité',l3:'Politique de cookies',l4:'Sécurité',copy:'© 2024 INTEGRA Soluciones Informáticas S.L. — Tous droits réservés'},
         cookie:{text:"Nous utilisons nos propres cookies et ceux de tiers pour analyser nos services et vous afficher des publicités pertinentes. Vous pouvez obtenir plus d'informations dans notre <a href='#'>Politique de Cookies</a>.",reject:'Refuser',accept:'Tout accepter'},
         toast:'✓ Demande envoyée — nous vous contacterons dans moins de 48 h',
         alerts:{fillForm:"Veuillez remplir au moins le nom et l'email.",selectIcon:'Veuillez sélectionner une icône de sécurité.',wrongIcon:'Icône de sécurité incorrecte. Veuillez réessayer.'}
@@ -448,14 +553,17 @@
       return v ?? path;
     }
 
-    function setLang(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang === 'fr' ? 'fr' : lang === 'en' ? 'en' : 'es';
-      ['es','en','fr'].forEach(l => document.getElementById('lang-'+l)?.classList.toggle('active', l === lang));
-      try { localStorage.setItem('integra_lang', lang); } catch(e){}
-      applyLangStatic();
-      navigate(currentPage);
-    }
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'fr' ? 'fr' : lang === 'en' ? 'en' : 'es';
+  ['es','en','fr'].forEach(l => {
+    const btn = document.getElementById('lang-'+l);
+    if (btn) { btn.classList.remove('active'); if (l === lang) btn.classList.add('active'); }
+  });
+  try { localStorage.setItem('integra_lang', lang); } catch(e){}
+  applyLangStatic();
+  navigate(currentPage);
+}
 
     function applyLangStatic() {
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -528,7 +636,6 @@
 <div class="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>${h.badge}</div>
     <h1 class="hero-title">${h.title}</h1>
     <p class="hero-sub">${h.sub}</p>
     <div class="hero-actions">
@@ -536,8 +643,9 @@
       <button class="btn-outline" onclick="navigate('soluciones')">${h.cta2}</button>
     </div>
     <div style="display:flex;gap:16px;margin-bottom:48px;align-items:center;">
-      <a href="https://cloudglobalsl.github.io/group/" target="_blank" class="nav-btn-secondary" style="background:white;padding:10px 28px;display:flex;align-items:center;"><img src="logo.jpg" alt="Cloud Global" style="height:42px;display:block;"></a>
-      <button onclick="navigate('inicio')" class="nav-btn-secondary" style="background:white;padding:10px 28px;display:flex;align-items:center;"><img src="asset 10.png" alt="Integra" style="height:42px;display:block;"></button>
+      <a href="https://cloudglobalsl.github.io/group/" target="_blank" class="nav-btn-secondary" style="background:white;padding:10px 28px;display:flex;align-items:center;"><img src="logo.jpg" alt="Cloud Global" style="height:42px;width:120px;object-fit:contain;display:block;"></a>
+      <button onclick="navigate('inicio')" class="nav-btn-secondary" style="background:white;padding:10px 28px;display:flex;align-items:center;"><img src="asset 10.png" alt="Integra" style="height:42px;width:120px;object-fit:contain;display:block;"></button>
+      <a href="https://comercialsl.github.io/tech/" target="_blank" class="nav-btn-secondary" style="background:white;padding:10px 28px;display:flex;align-items:center;"><img src="logoo.png" alt="Logo 2" style="height:42px;width:120px;object-fit:contain;display:block;"></a>
     </div>
     <div class="hero-metrics">
       <div><div class="metric-value">99<span>.9%</span></div><div class="metric-label">${h.m1l}</div></div>
@@ -821,22 +929,33 @@ ${footer()}</div>`;
     };
 
     // ─── ROUTER ──────────────────────────────────────────────────────────────────
-    function navigate(page) {
-      if (typeof mobileOpen !== 'undefined' && mobileOpen) {
-        mobileOpen = false;
-        document.getElementById('nav-links').style.cssText = '';
-      }
-      if (!pages[page]) page = 'inicio';
-      currentPage = page;
-      const app = document.getElementById('app');
-      app.innerHTML = pages[page]();
-      window.scrollTo({top:0,behavior:'instant'});
-      updateActive(page);
-      const titleKey = {inicio:'INTEGRA SOLUCIONES — Infraestructura Digital End-to-End',soluciones:'Soluciones — INTEGRA SOLUCIONES',servicios:'Servicios — INTEGRA SOLUCIONES',industrias:'Industrias — INTEGRA SOLUCIONES',nosotros:'Nosotros — INTEGRA SOLUCIONES',partners:'Partners — INTEGRA SOLUCIONES',contacto:'Contacto — INTEGRA SOLUCIONES',login:'Acceso Clientes — INTEGRA SOLUCIONES',cloud_global:'Cloud Global — INTEGRA SOLUCIONES'};
-      document.title = titleKey[page] || 'INTEGRA SOLUCIONES';
-      history.pushState({page},'','#'+page);
-      afterRender(page);
-    }
+function navigate(page) {
+  if (typeof mobileOpen !== 'undefined' && mobileOpen) {
+    mobileOpen = false;
+    document.getElementById('nav-links').style.cssText = '';
+  }
+  if (!pages[page]) page = 'inicio';
+  currentPage = page;
+  const app = document.getElementById('app');
+  
+  // Fade out current content
+  app.style.opacity = '0';
+  app.style.transition = 'opacity 0.5s ease';
+  
+  // Wait for fade out, then change content
+  setTimeout(() => {
+    app.innerHTML = pages[page]();
+    // Fade in new content
+    app.style.opacity = '1';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }, 500);
+  
+  updateActive(page);
+  const titleKey = {inicio:'INTEGRA SOLUCIONES — Infraestructura Digital End-to-End',soluciones:'Soluciones — INTEGRA SOLUCIONES',servicios:'Servicios — INTEGRA SOLUCIONES',industrias:'Industrias — INTEGRA SOLUCIONES',nosotros:'Nosotros — INTEGRA SOLUCIONES',partners:'Partners — INTEGRA SOLUCIONES',contacto:'Contacto — INTEGRA SOLUCIONES',login:'Acceso Clientes — INTEGRA SOLUCIONES',cloud_global:'Cloud Global — INTEGRA SOLUCIONES'};
+  document.title = titleKey[page] || 'INTEGRA SOLUCIONES';
+  history.pushState({page},'','#'+page);
+  afterRender(page);
+}
 
     function updateActive(page) {
       document.querySelectorAll('.nav-links a[data-page]').forEach(a => {

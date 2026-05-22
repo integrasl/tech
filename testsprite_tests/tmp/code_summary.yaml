@@ -1,0 +1,105 @@
+version: "2"
+type: frontend
+tech_stack:
+  - HTML
+  - Vanilla JavaScript
+  - Vanilla CSS
+routes:
+  - path: /#inicio
+    file: index.html
+    auth_required: false
+    description: Homepage with hero banner and highlights
+  - path: /#soluciones
+    file: index.html
+    auth_required: false
+    description: Solutions cards listing and CTA
+  - path: /#servicios
+    file: index.html
+    auth_required: false
+    description: Differentiated service details and accordion sections
+  - path: /#industrias
+    file: index.html
+    auth_required: false
+    description: Industry sector experience cards
+  - path: /#nosotros
+    file: index.html
+    auth_required: false
+    description: Corporate history timeline and core values
+  - path: /#partners
+    file: index.html
+    auth_required: false
+    description: Trusted partner logos and channel integrator strip
+  - path: /#contacto
+    file: index.html
+    auth_required: false
+    description: Dynamic contact form with verification captcha
+  - path: /#login
+    file: index.html
+    auth_required: false
+    description: Customer portal login page mock
+  - path: /#registro
+    file: index.html
+    auth_required: false
+    description: Customer account registration mock
+features:
+  - name: Language Switcher
+    description: Switch between ES, EN, and FR languages dynamically
+    files:
+      - index.html
+    entry_route: /#inicio
+    user_interactions:
+      - Click "EN" language switch button in navigation
+      - See site text translate to English
+      - Click "FR" language switch button in navigation
+      - See site text translate to French
+      - Click "ES" language switch button in navigation
+      - See site text translate to Spanish
+    api_calls: []
+    auth_required: false
+  - name: Theme Toggle
+    description: Toggle between light mode and dark mode
+    files:
+      - index.html
+    entry_route: /#inicio
+    user_interactions:
+      - Click theme toggle button in navigation
+      - See body background change to dark
+      - Click theme toggle button again
+      - See body background change to light
+    api_calls: []
+    auth_required: false
+  - name: Cookie Consent Banner
+    description: Bottom banner requesting cookie accept or reject
+    files:
+      - index.html
+    entry_route: /#inicio
+    user_interactions:
+      - See cookie banner at bottom
+      - Click "Aceptar todas" button
+      - See cookie banner disappear
+    api_calls: []
+    auth_required: false
+  - name: Contact Form Submission
+    description: Contact page form with dynamic security verification
+    files:
+      - index.html
+    entry_route: /#contacto
+    user_interactions:
+      - Enter values in Name and Corporate Email fields
+      - Click the Nube (Cloud) security verification icon
+      - Click "Enviar" button
+      - See success toast notification
+    api_calls: []
+    auth_required: false
+  - name: Client Portal Mock Login
+    description: Portal login page mock with sign in fields
+    files:
+      - index.html
+    entry_route: /#login
+    user_interactions:
+      - Enter email in Corporate Email field
+      - Enter password in Password field
+      - Click "Acceder a mi panel" button
+    api_calls: []
+    auth_required: false
+known_limitations: []
